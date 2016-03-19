@@ -1,0 +1,1 @@
+This is all the material for the Wix NodeJS Workshop, first conducted on 6th March, 2016
