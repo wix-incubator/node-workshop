@@ -26,6 +26,7 @@ describe("intro-to-nodejs", function() {
       {file: '03-reading-a-file.js', expectedOut: 'Hello, world'},
       {file: '04-copying-a-file.js', expectedOut: 'Hello, world'},
       {file: '05-handling-errors.js', expectedOut: 'Hello, world'},
+      {file: '06-async-functions.js', expectedOut: 'Hello, world'}
     ];
     
     tests.forEach(test => 
@@ -45,7 +46,7 @@ describe("intro-to-nodejs", function() {
     this.timeout(5000);
     const tests = [
       {
-        file: '06-http-server',
+        file: '07-http-server',
         expectedOut: 'hello,world,goodbye',
         fetch: ['hello', 'world', 'close']
       }

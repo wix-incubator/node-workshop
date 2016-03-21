@@ -13,3 +13,16 @@ const server = http.createServer(function(req, res) {
   console.log('Listening...');
 });
 
+/*
+* HTTP servers
+* Listening
+* req/response
+* req.url
+* res.end
+* Very raw:
+  * No req parsing, e.g. query parameters or form parameters
+  * No easy sending
+  * No routing
+  * No plugins
+* When event loop is empty, program ends
+*/
