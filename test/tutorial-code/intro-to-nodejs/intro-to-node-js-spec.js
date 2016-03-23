@@ -30,20 +30,20 @@ describe("intro-to-nodejs", function() {
     ]
     
     tests.forEach(test => 
-        it(test.file, (done) => {
-          const process = child_process.fork(
-            path.join(introFolder, test.file), {silent: true})
-          let stdout = '';
-          process.stdout.on('data', (data) =>
-            stdout += data.toString()  
-          )
-          process.on('err', done)
-          process.on('exit', (code) => {
-            expect(code).to.be.equal(0)
-            expect(stdout.trim()).to.equal(test.expectedOut)
-            done();
-          })  
-        })
+      it(test.file, (done) => {
+        const process = child_process.fork(
+          path.join(introFolder, test.file), {silent: true})
+        let stdout = '';
+        process.stdout.on('data', (data) =>
+          stdout += data.toString()  
+        )
+        process.on('err', done)
+        process.on('exit', (code) => {
+          expect(code).to.be.equal(0)
+          expect(stdout.trim()).to.equal(test.expectedOut)
+          done();
+        })  
+      })
     )
   })
   
@@ -61,17 +61,22 @@ describe("intro-to-nodejs", function() {
         fetch: ['hello', 'world', 'close']
       },
       {
-        file: '09-express-req-param',
+        file: '09-express-req-query',
         expectedOut: '9',
         fetch: ['add?a=4&b=5']
+      },
+      {
+        file: '10-express-req-param',
+        expectedOut: '14',
+        fetch: ['add/4/10']
       }
     ]
     
     tests.forEach(test => {
       it(test.file, (done) => {
         const command = execPath(path.join(introFolder, test.file)).split(' ')
-        const testProcess = child_process.fork(path.join(introFolder, test.file),
-          {silent: 'true'})          
+        const testProcess = child_process.fork(
+          path.join(introFolder, test.file), {silent: true})          
         const killTestProcess = (v) => {
           testProcess.kill()
           return v
