@@ -34,6 +34,7 @@
     "node-fetch": "^1.4.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.7.2"
+    "babel-polyfill": "^6.7.2",
+    "express": "^4.13.4"
   }
 }

@@ -49,6 +49,11 @@ describe("intro-to-nodejs", function() {
         file: '07-http-server',
         expectedOut: 'hello,world,goodbye',
         fetch: ['hello', 'world', 'close']
+      },
+      {
+        file: '08-express',
+        expectedOut: 'hello,world,goodbye',
+        fetch: ['hello', 'world', 'close']
       }
     ];
     
