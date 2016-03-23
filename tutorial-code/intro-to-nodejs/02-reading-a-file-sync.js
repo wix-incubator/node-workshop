@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs')
 
 const content = fs.readFileSync(__dirname + '/data/hello-world.txt', 
-                                {encoding: 'utf-8'});
+                                {encoding: 'utf-8'})
 
-console.log(content);
+console.log(content)
 
 /*
 * Synchronous I/O
