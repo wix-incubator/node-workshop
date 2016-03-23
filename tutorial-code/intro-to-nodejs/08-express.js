@@ -2,13 +2,13 @@ const express = require('express')
 
 const app = express()
 
-app.use('/hello', function(req, res) {
+app.get('/hello', function(req, res) {
   res.send('hello')
 })
-app.use('/world', function(req, res) {
+app.get('/world', function(req, res) {
   res.send('world')
 })
-app.use('/close', function(req, res) {
+app.get('/close', function(req, res) {
   res.send('goodbye')
   server.close()
 })
@@ -16,3 +16,8 @@ app.use('/close', function(req, res) {
 const server = app.listen(process.env.PORT || 3000, function() {
   console.log('Listening...')
 })
+
+/*
+* Express
+* app.use
+*/
