@@ -11,6 +11,5 @@ const server = app.listen(process.env.PORT || 3000, function() {
 })
 
 /*
-* Express
-* POST
+* app.post
 */
