@@ -108,17 +108,22 @@ describe("intro-to-nodejs", function() {
         fetch: ['div?a=20&b=4']
       },
       {
-        file: '15-express-res-sendfile',
+        file: '15-express-res-readfile',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '16-express-res-stream',
+        file: '16-express-res-sendfile',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '17-express-res-stream-file',
+        file: '17-express-res-stream',
+        expectedOut: 'Hello, world',
+        fetch: ['hello']
+      },
+      {
+        file: '18-express-res-stream-file',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       }
