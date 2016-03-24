@@ -96,6 +96,31 @@ describe("intro-to-nodejs", function() {
         file: '12-express-req-json',
         expectedOut: '11',
         fetch: [{path: 'add', a: '5', b: '6', asJson: true}]
+      },
+      {
+        file: '13-express-res',
+        expectedOut: '{"value":5}',
+        fetch: ['div?a=20&b=4']
+      },
+      {
+        file: '14-express-res-json',
+        expectedOut: '{"value":5}',
+        fetch: ['div?a=20&b=4']
+      },
+      {
+        file: '15-express-res-sendfile',
+        expectedOut: 'Hello, world',
+        fetch: ['hello']
+      },
+      {
+        file: '16-express-res-stream',
+        expectedOut: 'Hello, world',
+        fetch: ['hello']
+      },
+      {
+        file: '17-express-res-stream-file',
+        expectedOut: 'Hello, world',
+        fetch: ['hello']
       }
     ]
     
