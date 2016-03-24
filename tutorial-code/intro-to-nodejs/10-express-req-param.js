@@ -11,5 +11,6 @@ const server = app.listen(process.env.PORT || 3000, function() {
 })
 
 /*
+* curl 'http://localhost:3000/add/4/5'
 * req.params
 */
