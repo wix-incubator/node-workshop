@@ -142,6 +142,11 @@ describe("intro-to-nodejs", function() {
         file: '21-express-middleware-err',
         expectedOut: 'Hello, world',
         fetch: ['error']
+      },
+      {
+        file: '22-express-rendering-engines',
+        expectedOut: 'Hello, World',
+        fetch: ['hello']
       }
     ]
     

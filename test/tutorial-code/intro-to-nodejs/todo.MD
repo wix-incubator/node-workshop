@@ -1,3 +1,1 @@
-* middleware
-* handlebars? jade?
 * Modules

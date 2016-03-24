@@ -36,6 +36,7 @@
   "dependencies": {
     "babel-polyfill": "^6.7.2",
     "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "form-data": "^1.0.0-rc4"
   }
