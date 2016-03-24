@@ -6,6 +6,7 @@ const path = require('path')
 const Promise = require('bluebird')
 const fetch = require('node-fetch')
 const querystring = require('querystring')
+const os = require('os')
 
 const introFolder = 'tutorial-code/intro-to-nodejs'
 const execPath = (modulePath) =>
@@ -126,6 +127,21 @@ describe("intro-to-nodejs", function() {
         file: '18-express-res-stream-file',
         expectedOut: 'Hello, world',
         fetch: ['hello']
+      },
+      {
+        file: '19-express-middleware-static',
+        expectedOut: 'Hello, world',
+        fetch: ['hello-world.txt']
+      },
+      {
+        file: '20-express-middleware-yours',
+        expectedOut: os.hostname() + ' on ' + os.platform(),
+        fetch: ['']
+      },
+      {
+        file: '21-express-middleware-err',
+        expectedOut: 'Hello, world',
+        fetch: ['error']
       }
     ]
     
