@@ -1,1 +1,1 @@
-* Modules
+* ES6 Section!

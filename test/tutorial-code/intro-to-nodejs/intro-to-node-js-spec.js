@@ -44,7 +44,9 @@ describe("intro-to-nodejs", function() {
       {file: '03-reading-a-file.js', expectedOut: 'Hello, world'},
       {file: '04-copying-a-file.js', expectedOut: 'Hello, world'},
       {file: '05-handling-errors.js', expectedOut: 'Hello, world'},
-      {file: '06-async-functions.js', expectedOut: 'Hello, world'}
+      {file: '06-async-functions.js', expectedOut: 'Hello, world'},
+      {file: '07b-modules-import-default.js', expectedOut: 'Hello, world'},
+      {file: '08b-modules-import.js', expectedOut: 'Hello, world'}
     ]
     
     tests.forEach(test => 
@@ -69,82 +71,82 @@ describe("intro-to-nodejs", function() {
     this.timeout(5000)
     const tests = [
       {
-        file: '07-http-server',
+        file: '09-http-server',
         expectedOut: 'hello,world,goodbye',
         fetch: ['hello', 'world', 'close']
       },
       {
-        file: '08-express',
+        file: '10-express',
         expectedOut: 'hello,world,goodbye',
         fetch: ['hello', 'world', 'close']
       },
       {
-        file: '09-express-req-query',
+        file: '11-express-req-query',
         expectedOut: '9',
         fetch: ['add?a=4&b=5']
       },
       {
-        file: '10-express-req-param',
+        file: '12-express-req-param',
         expectedOut: '14',
         fetch: ['add/4/10']
       },
       {
-        file: '11b-express-req-post',
+        file: '13b-express-req-post',
         expectedOut: '10',
         fetch: [{path: 'add', a: '4', b: '6'}]
       },
       {
-        file: '12-express-req-json',
+        file: '14-express-req-json',
         expectedOut: '11',
         fetch: [{path: 'add', a: '5', b: '6', asJson: true}]
       },
       {
-        file: '13-express-res',
+        file: '15-express-res',
         expectedOut: '{"value":5}',
         fetch: ['div?a=20&b=4']
       },
       {
-        file: '14-express-res-json',
+        file: '16-express-res-json',
         expectedOut: '{"value":5}',
         fetch: ['div?a=20&b=4']
       },
       {
-        file: '15-express-res-readfile',
+        file: '17-express-res-readfile',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '16-express-res-sendfile',
+        file: '18-express-res-sendfile',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '17-express-res-stream',
+        file: '19-express-res-stream',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '18-express-res-stream-file',
+        file: '20-express-res-stream-file',
         expectedOut: 'Hello, world',
         fetch: ['hello']
       },
       {
-        file: '19-express-middleware-static',
+        file: '21-express-middleware-static',
         expectedOut: 'Hello, world',
         fetch: ['hello-world.txt']
       },
       {
-        file: '20-express-middleware-yours',
+        file: '22-express-middleware-yours',
         expectedOut: os.hostname() + ' on ' + os.platform(),
         fetch: ['']
       },
       {
-        file: '21-express-middleware-err',
+        file: '23-express-middleware-err',
         expectedOut: 'Hello, world',
         fetch: ['error']
       },
       {
-        file: '22-express-rendering-engines',
+        file: '24-express-rendering-engines',
         expectedOut: 'Hello, World',
         fetch: ['hello']
       }
