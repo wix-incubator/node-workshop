@@ -7,6 +7,7 @@ const Promise = require('bluebird')
 const fetch = require('node-fetch')
 const querystring = require('querystring')
 const os = require('os')
+const testCommons = require('./test-commons')
 
 const introFolder = 'tutorial-code/intro-to-nodejs'
 const execPath = (modulePath) =>
@@ -38,7 +39,7 @@ const httpFetch = (path) =>  {
 
 describe("intro-to-nodejs", function() {
   describe("cmd-programs", function() {
-    const tests = [
+    testCommons.testCommandLine([
       {file: '01-hello-world.js', expectedOut: 'Hello, world'},
       {file: '02-reading-a-file-sync.js', expectedOut: 'Hello, world'},
       {file: '03-reading-a-file.js', expectedOut: 'Hello, world'},
@@ -47,24 +48,7 @@ describe("intro-to-nodejs", function() {
       {file: '06-async-functions.js', expectedOut: 'Hello, world'},
       {file: '07b-modules-import-default.js', expectedOut: 'Hello, world'},
       {file: '08b-modules-import.js', expectedOut: 'Hello, world'}
-    ]
-    
-    tests.forEach(test => 
-      it(test.file, (done) => {
-        const process = child_process.fork(
-          path.join(introFolder, test.file), {silent: true})
-        let stdout = '';
-        process.stdout.on('data', (data) =>
-          stdout += data.toString()  
-        )
-        process.on('err', done)
-        process.on('exit', (code) => {
-          expect(code).to.be.equal(0)
-          expect(stdout.trim()).to.equal(test.expectedOut)
-          done();
-        })  
-      })
-    )
+    ], introFolder, it)
   })
   
   describe("http-programs", function() {

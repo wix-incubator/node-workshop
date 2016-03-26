@@ -1,1 +1,4 @@
-* ES6 Section!
+* const/let
+* Destructuring
+* Promises
+* Generators/yield promises
