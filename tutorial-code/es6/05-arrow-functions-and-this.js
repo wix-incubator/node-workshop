@@ -2,9 +2,6 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 
-const sourceFile = path.join(__dirname, 'data/hello-world.txt')
-const targetFile = path.join(os.tmpdir(), 'copied-file.txt')
-
 const operations = {
   copyAdditions: '',
   copyFile(sourceFile, targetFile, cb) {
@@ -24,6 +21,9 @@ const operations = {
     })
   }    
 }
+
+const sourceFile = path.join(__dirname, 'data/hello-world.txt')
+const targetFile = path.join(os.tmpdir(), 'copied-file.txt')
 
 operations.copyAdditions = '!'
 operations.copyFile(sourceFile, targetFile, err => {

@@ -1,13 +1,14 @@
-const fs = require('fs')
-const os = require('os')
+"use strict"
 const path = require('path')
+const os = require('os')
+const fs = require('fs')
 
-const copyFile = (sourceFile, targetFile, cb) => {
+function copyFile(sourceFile, targetFile, {copyAdditions}, cb) {
   fs.readFile(sourceFile, (err, contentBuffer) => {
     if (err)
       return cb(err)
       
-    fs.writeFile(targetFile, contentBuffer, err => {
+    fs.writeFile(targetFile, contentBuffer + copyAdditions, err => {
       if (err)
         return cb(err)
       
@@ -19,12 +20,13 @@ const copyFile = (sourceFile, targetFile, cb) => {
 const sourceFile = path.join(__dirname, 'data/hello-world.txt')
 const targetFile = path.join(os.tmpdir(), 'copied-file.txt')
 
-copyFile(sourceFile, targetFile, err => {
+copyFile(sourceFile, targetFile, {copyAdditions: '!'}, err => {
     fs.readFile(targetFile, {encoding: 'utf-8'}, (err, content) =>
       console.log(content)
     )
 })
 
+
 /*
-* Cool developers don't use 'function'
- */
+* destructuring parameter
+*/
