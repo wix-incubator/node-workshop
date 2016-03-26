@@ -1,6 +1,8 @@
 const child_process = require('child_process')
 const path = require('path')
 const expect = require('chai').expect
+const fetch = require('node-fetch')
+const querystring = require('querystring')
 
 exports.testCommandLine = (tests, folderForTests, it) => {
   tests.forEach(test => 
@@ -24,4 +26,46 @@ exports.testCommandLine = (tests, folderForTests, it) => {
       })  
     })
   )  
+}
+  
+exports.httpFetch = (path) => {
+  let request
+  if (typeof path === 'string') {
+    request = fetch(`http://localhost:3000/${path}`)
+  }
+  else {
+    request = fetch(`http://localhost:3000/${path.path}`, {
+      method: 'POST',
+      body: path.asJson ? JSON.stringify(path) : querystring.stringify(path),
+      headers: {'Content-Type': path.asJson ?
+        'application/json' : 
+        'application/x-www-form-urlencoded'}
+    })
+  }
+  
+  return request.then(response => 
+    response.ok ? 
+      response.text() : 
+      Promise.reject(new Error("bad response")))
+}
+
+exports.testServer = (tests, folderForTests, it) => {
+  tests.forEach(test => 
+    it(test.file, (done) => {
+      const testProcess = child_process.fork(
+        path.join(folderForTests, test.file), {silent: true})          
+      const killTestProcess = (v) => {
+        testProcess.kill()
+        return v
+      }
+      testProcess.on('err', done)
+      testProcess.stdout.on('data', (d) => {
+        Promise.all(test.fetch.map(exports.httpFetch))
+          .then(fetchResults => { 
+            expect(fetchResults.join(',')).to.equal(test.expectedOut)
+          })
+          .then(killTestProcess, killTestProcess)
+          .then(done, done)          
+      })
+    }))
 }

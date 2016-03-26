@@ -11,7 +11,7 @@ const testCommons = require('./test-commons')
 
 const es6Folder = 'tutorial-code/es6'
 
-describe.only("es6", function() {
+describe("es6", function() {
   describe("cmd-programs", function() {
     testCommons.testCommandLine([
       {file: '01-arrow-functions-simple', expectedOut: 'HELLO, WORLD'},
@@ -33,6 +33,19 @@ describe.only("es6", function() {
       {file: '15-simplified-fields.js', expectedOut: '5.8595', babel: true},
       {file: '16-destructuring-simple-syntax.js', expectedOut: '1', babel: true},
       {file: '17-destructuring-parameter.js', expectedOut: 'Hello, world!', babel: true},
+      {file: '18-promises.js', expectedOut: 'Hello, world'},
+      {file: '19-promisify.js', expectedOut: 'Hello, world'},
+      {file: '20-promisify-all.js', expectedOut: 'Hello, world'},
     ], es6Folder, it)    
   })
+  
+  describe("http-programs", function() {
+    this.timeout(5000)
+    const tests = [
+      {file: '21-promises-and-express', expectedOut: 'Hello, world', fetch: ['hello']},
+    ]
+
+    testCommons.testServer(tests, es6Folder, it)    
+  })
+  
 })
