@@ -5,12 +5,15 @@ Promise.promisifyAll(fs)
 
 const app = express()
 
-app.get('/hello', (req, res) =>
-  fs.readFileAsync(__dirname + '/data/hello-world.txt')
-    .then(content => 
-      res.send(content))
-    .catch(err =>
-       res.sendStatus(500, err.message)))
+app.get('/hello', Promise.coroutine(function*(req, res) {
+  try {
+    const content = yield fs.readFileAsync(__dirname + '/data/hello-world.txt')
+    res.send(content)
+  }
+  catch(err) {
+    res.sendStatus(500, err.message)    
+  }
+}))
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Listening...')

@@ -36,6 +36,10 @@ describe("es6", function() {
       {file: '18-promises.js', expectedOut: 'Hello, world'},
       {file: '19-promisify.js', expectedOut: 'Hello, world'},
       {file: '20-promisify-all.js', expectedOut: 'Hello, world'},
+      {file: '22-generators', expectedOut: 'Hello\nWorld\ntrue\nHello\nWorld'},
+      {file: '23-promise-generator', expectedOut: 'Hello\nWorld'},
+      {file: '24-copy-file-as-coroutine', expectedOut: 'Hello, world'},
+      {file: '24b-copy-file-as-coroutine', expectedOut: 'Hello, world'},
     ], es6Folder, it)    
   })
   
@@ -43,6 +47,7 @@ describe("es6", function() {
     this.timeout(5000)
     const tests = [
       {file: '21-promises-and-express', expectedOut: 'Hello, world', fetch: ['hello']},
+      {file: '25-coroutines-and-express', expectedOut: 'Hello, world', fetch: ['hello']},
     ]
 
     testCommons.testServer(tests, es6Folder, it)    
