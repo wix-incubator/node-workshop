@@ -3,7 +3,7 @@ const testCommons = require('./test-commons')
 
 const testingFolder = 'tutorial-code/testing'
 
-describe.only("testing", function() {
+describe("testing", function() {
   testCommons.testTests([
     {file: '01-mocha', failures: ['02-']},
     {file: '02-chai', failures: ['02-']},
