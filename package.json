@@ -5,9 +5,14 @@
   "main": "index.js",
   "scripts": {
     "node": "babel-node",
-    "postinstall": "cd solved-exercises/01-db && npm install",
+    "postinstall": "npm run install-01 && npm run install-02",
+    "install-01": "cd solved-exercises/01-db && npm install",
+    "install-02": "cd solved-exercises/02-todomvc-client && npm install",
     "testing": "mocha --require babel-register --require babel-polyfill",
-    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill && cd solved-exercises/01-db && npm test"
+    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill",
+    "posttest": "npm run test-01 && npm run test-02",
+    "test-01": "cd solved-exercises/01-db && npm test",
+    "test-02": "cd solved-exercises/02-todomvc-client && npm test"
   },
   "repository": {
     "type": "git",
