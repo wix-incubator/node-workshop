@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "node": "babel-node",
+    "postinstall": "cd solved-exercises/01-db && npm install",
     "testing": "mocha --require babel-register --require babel-polyfill",
-    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill"
+    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill && cd solved-exercises/01-db && npm test"
   },
   "repository": {
     "type": "git",
