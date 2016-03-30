@@ -1,0 +1,1 @@
+module.exports = (a, b) => Math.abs(a) * Math.abs(b)

@@ -1,0 +1,1 @@
+module.exports = (a, b, cb) => process.nextTick(() => cb(null, a * b))

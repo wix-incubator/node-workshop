@@ -1,11 +1,6 @@
 'use strict'
-
-const expect = require('chai').expect
-const child_process = require('child_process')
-const path = require('path')
-const Promise = require('bluebird')
-const os = require('os')
 const testCommons = require('./test-commons')
+const os = require('os')
 
 const introFolder = 'tutorial-code/intro-to-nodejs'
 

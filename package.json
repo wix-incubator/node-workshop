@@ -4,8 +4,9 @@
   "description": "All code for the Wix NodeJS workshop",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill",
-    "node": "babel-node"
+    "node": "babel-node",
+    "testing": "mocha --require babel-register --require babel-polyfill",
+    "test": "mocha test/**/*-spec.js --require babel-register --require babel-polyfill"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "babel-register": "^6.7.2",
     "bluebird": "^3.3.4",
     "chai": "^3.5.0",
+    "lodash": "^4.6.1",
     "mocha": "^2.4.5",
     "node-fetch": "^1.4.0"
   },

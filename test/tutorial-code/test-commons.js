@@ -3,6 +3,7 @@ const path = require('path')
 const expect = require('chai').expect
 const fetch = require('node-fetch')
 const querystring = require('querystring')
+const _ = require('lodash')
 
 exports.testCommandLine = (tests, folderForTests, it) => {
   tests.forEach(test => 
@@ -68,4 +69,35 @@ exports.testServer = (tests, folderForTests, it) => {
           .then(done, done)          
       })
     }))
+}
+
+exports.testTests = (tests, folderForTests, it) => {
+  tests.forEach(test => 
+    it(test.file, (done) => {
+      const testProcess = child_process.fork('node_modules/.bin/mocha',
+        [path.join(folderForTests, test.file + '.js'), 
+        '--require', 'babel-register', 
+        '--require', 'babel-polyfill', 
+        '--reporter', 'json'], {silent: true})
+      testProcess.on('err', done)
+      let stdout = ''
+      testProcess.stdout.on('data', (data) =>
+        stdout += data.toString()  
+      )
+      testProcess.on('err', done)
+      testProcess.on('exit', (code) => {
+        expect(code).to.be.equal(test.failures.length > 0 ? 1 : 0)
+        const testStatus = JSON.parse(stdout)
+        for (const t of testStatus.tests) {
+          if (t.err.message)
+            expect(t.title).to.satisfy(title => 
+              !!_.find(test.failures || [], f => title.indexOf(f) >= 0))
+          else
+            expect(t.title).to.satisfy(title => 
+              !_.find(test.failures || [], f => title.indexOf(f) >= 0))
+        }
+        done()
+      })  
+    })
+  )  
 }

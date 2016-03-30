@@ -1,12 +1,4 @@
 'use strict'
-
-const expect = require('chai').expect
-const child_process = require('child_process')
-const path = require('path')
-const Promise = require('bluebird')
-const fetch = require('node-fetch')
-const querystring = require('querystring')
-const os = require('os')
 const testCommons = require('./test-commons')
 
 const es6Folder = 'tutorial-code/es6'
