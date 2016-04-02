@@ -9,19 +9,21 @@ const _ = require('lodash')
 exports.testCommandLine = (tests, folderForTests, it) => {
   tests.forEach(test => 
     it(test.file, (done) => {
-      const process = test.babel ? 
-        child_process.fork('node_modules/.bin/babel-node', 
+      const subProcess = test.babel ? 
+        child_process[process.platform === 'win32' ? 'spawn' : 'fork'](
+            path.join('node_modules', '.bin', 'babel-node') + 
+                (process.platform === 'win32' ? '.cmd' : ''), 
           [path.join(folderForTests, test.file)].concat(test.args || []), 
-            {silent: 'true'}) :
+            {silent: true, shell: true, stdio: 'pipe'}) :
           child_process.fork(path.join(folderForTests, test.file), 
             test.args || [], {silent: true})
       
       let stdout = ''
-      process.stdout.on('data', (data) =>
+      subProcess.stdout.on('data', (data) =>
         stdout += data.toString()  
       )
-      process.on('err', done)
-      process.on('exit', (code) => {
+      subProcess.on('err', done)
+      subProcess.on('exit', (code) => {
         expect(code).to.be.equal(0)
         expect(stdout.trim()).to.equal(test.expectedOut)
         done()
@@ -75,9 +77,11 @@ exports.testServer = (tests, folderForTests, it) => {
 exports.testTests = (tests, folderForTests, it) => {
   tests.forEach(test => 
     it(test.file, (done) => {
-      const testProcess = child_process.fork('node_modules/.bin/mocha',
+      const testProcess = child_process[process.platform === 'win32' ? 'spawn' : 'fork'](
+          path.join('node_modules', '.bin', 'mocha') + 
+            (process.platform === 'win32' ? '.cmd' : ''),
         [path.join(folderForTests, test.file + '.js'), 
-        '--reporter', 'json'], {silent: true})
+        '--reporter', 'json'], {silent: true, stdio: 'pipe', shell: true})
       testProcess.on('err', done)
       let stdout = ''
       testProcess.stdout.on('data', (data) =>
