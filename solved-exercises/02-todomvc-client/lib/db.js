@@ -3,6 +3,7 @@ const Promise = require('bluebird')
 const fs = require('fs')
 Promise.promisifyAll(fs)
 const path = require('path')
+const _ = require('lodash')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)
@@ -24,23 +25,25 @@ module.exports = (fileLocation) => {
     yield fs.writeFileAsync(userFilePath(userId), JSON.stringify(todos))
   })
   
+  const findIndex = (todos, id) => todos.findIndex(element => element.id === id)
+  
   return {
-    addTodo: Promise.coroutine(function*(userId, text) {
+    addTodo: Promise.coroutine(function*(userId, text, id) {
       const todos = yield readUserFile(userId)
       
-      yield writeUserFile(userId, todos.concat({text})) 
+      yield writeUserFile(userId, todos.concat({text, id})) 
     }),
     
-    deleteTodo: Promise.coroutine(function*(userId, index) {
+    deleteTodo: Promise.coroutine(function*(userId, id) {
       const todos = yield readUserFile(userId)
-      todos.splice(index, 1)
+      todos.splice(findIndex(todos, id), 1)
       yield writeUserFile(userId, todos) 
     }),
     
-    markTodo(userId, index, isChecked) {
+    markTodo(userId, isChecked, id) {
       return readUserFile(userId)
         .then(todos => {
-          todos[index].checked = isChecked
+          todos[findIndex(todos, id)].checked = isChecked
           return todos 
         }).then(todos => 
           writeUserFile(userId, todos))
@@ -50,10 +53,10 @@ module.exports = (fileLocation) => {
       return readUserFile(userId)
     },
     
-    renameTodo: Promise.coroutine(function*(userId, index, text) {
+    renameTodo: Promise.coroutine(function*(userId, text, id) {
       const todos = yield readUserFile(userId)
       
-      todos[index].text = text
+      todos[findIndex(todos, id)].text = text
       
       yield writeUserFile(userId, todos)       
     })

@@ -78,34 +78,21 @@ describe("db", function() {
       db.addTodo('aUser', 'hi', 0)
     )
     it("should check an unchecked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', true, 0)
+      yield db.markTodo('aUser', 0)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: true, id: 0}])
     }))
-    
-    it("should check a checked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', true, 0)
-      yield db.markTodo('aUser', true, 0)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: true, id: 0}])
-    }))
-    
+        
     it("should uncheck a checked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', true, 0)
-      yield db.markTodo('aUser', false, 0)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: false, id: 0}])
-    }))
-    
-    it("should uncheck an unchecked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', false, 0)
+      yield db.markTodo('aUser', 0)
+      yield db.markTodo('aUser', 0)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: false, id: 0}])
     }))
     
     it("shouldn't touch other items", Promise.coroutine(function*() {
       yield db.addTodo('aUser', 'bye', 1)
-      yield db.markTodo('aUser', true, 1)
+      yield db.markTodo('aUser', 1)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 0}, {text: 'bye', checked: true, id: 1}])
     }))

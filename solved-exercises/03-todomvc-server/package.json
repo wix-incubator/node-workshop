@@ -1,0 +1,25 @@
+{
+  "name": "wix-node-workshop-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "build": "npm run client-build",
+    "test": "mocha test/*-spec.js",
+    "client-build": "cd client && npm run build",
+    "start:watch": "nodemon --ignore client"
+  },
+  "author": "Gil Tayar <gil@tayar.org>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.3.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "node-fetch": "^1.4.1",
+    "nodemon": "^1.9.1",
+    "tmp": "0.0.28"
+  }
+}
