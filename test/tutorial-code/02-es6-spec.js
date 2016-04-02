@@ -5,6 +5,7 @@ const es6Folder = '01-tutorial-code/02-es6'
 
 describe("es6", function() {
   describe("cmd-programs", function() {
+    this.timeout(20000)
     testCommons.testCommandLine([
       {file: '01-arrow-functions-simple', expectedOut: 'HELLO, WORLD'},
       {file: '02-arrow-functions-callbacks', expectedOut: 'Hello, world'},

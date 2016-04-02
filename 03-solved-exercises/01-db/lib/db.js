@@ -45,7 +45,7 @@ module.exports = (fileLocation) => {
         .then(todos => {
           const todo = todos[findIndex(todos, id)]
           todo.checked = !todo.checked
-          writeUserFile(userId, todos)
+          return writeUserFile(userId, todos)
         })
     },
     
