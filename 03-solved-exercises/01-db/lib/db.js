@@ -40,13 +40,13 @@ module.exports = (fileLocation) => {
       yield writeUserFile(userId, todos) 
     }),
     
-    markTodo(userId, isChecked, id) {
+    markTodo(userId, id) {
       return readUserFile(userId)
         .then(todos => {
-          todos[findIndex(todos, id)].checked = isChecked
-          return todos 
-        }).then(todos => 
-          writeUserFile(userId, todos))
+          const todo = todos[findIndex(todos, id)]
+          todo.checked = !todo.checked
+          writeUserFile(userId, todos)
+        })
     },
     
     listTodos(userId) {

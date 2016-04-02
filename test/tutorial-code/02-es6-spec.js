@@ -9,7 +9,7 @@ describe("es6", function() {
       {file: '01-arrow-functions-simple', expectedOut: 'HELLO, WORLD'},
       {file: '02-arrow-functions-callbacks', expectedOut: 'Hello, world'},
       {file: '03-arrow-functions-coolness', expectedOut: 'Hello, world'},
-      {file: '04-simplified-object-functions', expectedOut: 'Hello, world'},
+      {file: '04-simplified-object', expectedOut: 'Hello, world'},
       {file: '05-arrow-functions-and-this', expectedOut: 'Hello, world!'},
       {file: '05b-arrow-functions-and-this', expectedOut: 'Hello, world!'},
       {file: '06-this-bites', expectedOut: 'Hello, world!'},
@@ -29,9 +29,8 @@ describe("es6", function() {
       {file: '20-spread-parameters.js',  expectedOut: 'Hello World This Is Great', babel: true},
       {file: '21-spread-args.js',  expectedOut: 'Hello World This Is Great', babel: true},
       {file: '22-destructuring-objs.js',  expectedOut: '1', babel: true},
-      {file: '23-simplified-fields.js', expectedOut: '5.8595', babel: true},
-      {file: '24-destructuring-simple-syntax.js', expectedOut: '1', babel: true},
-      {file: '25-destructuring-parameter.js', expectedOut: 'Hello, world!', babel: true},
+      {file: '23-destructuring-simple-syntax.js', expectedOut: '1', babel: true},
+      {file: '24-destructuring-parameter.js', expectedOut: 'Hello, world!', babel: true},
     ], es6Folder, it)    
   })
   

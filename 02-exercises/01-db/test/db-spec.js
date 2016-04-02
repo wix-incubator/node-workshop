@@ -15,62 +15,66 @@ describe("db", function() {
   
   describe("addTodo", function() {
     it("adds first todo", Promise.coroutine(function*() {
-      yield db.addTodo('aUser', 'hi', 7)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 7}])
+      /**
+       * This test should add a todo and check that listTodo returns it
+       */
+      expect(1).to.equal(2)
     }))
     
     it("adds second todo", Promise.coroutine(function*() {
-      yield db.addTodo('aUser', 'hi', 3)
-      yield db.addTodo('aUser', 'bye', 2)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 3}, {text: 'bye', id: 2}])
+      /**
+       * This test should adds two todos and check that listTodo returns them
+       */
+      expect(1).to.equal(2)
     }))
     
     it("adds different todos to different users", Promise.coroutine(function*() {
-      yield db.addTodo('aUser', 'hi', 3)
-      yield db.addTodo('bUser', 'bye', 2)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 3}])
-      expect(yield db.listTodos('bUser')).to.deep.equal([{text: 'bye', id: 2}])
+      /**
+       * This test should add a todo to two different users and check that 
+       * listTodo returns them for each user 
+       */
     }))
     
     it("can add todos with the same text", Promise.coroutine(function*() {
-      yield db.addTodo('aUser', 'hi', 2)
-      yield db.addTodo('aUser', 'hi', 3)
-      
-      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 2}, {text: 'hi', id: 3}])
+      /**
+       * This test should adds two todos with the same text and check that 
+       * listTodo returns them (unmerged, of course)
+       */
     }))
   })
   
   describe("deleteTodo", function() {
-    it("can delete the only existing todo", () => 
-      db.addTodo('aUser', 'hi', 7)
-      .then(() => db.deleteTodo('aUser', 7))
-      .then(() => db.listTodos('aUser'))
-      .then((todos) => expect(todos).to.be.empty))
+    it("can delete the only existing todo", () =>
+      /** 
+       * This test creates a todo, deletes it, and checks that 
+       * listTodo returns an empty list
+       * Write it Promise Style
+       * */
+    )
 
     it("can delete only the first todo", () => 
-      db.addTodo('aUser', 'hi', 2)
-      .then(() => db.addTodo('aUser', 'bye', 3))
-      .then(() => db.deleteTodo('aUser', 2))
-      .then(() => db.listTodos('aUser'))
-      .then((todos) => expect(todos).to.deep.equal([{text: 'bye', id: 3}])))
+      /** 
+       * This test creates two todos, deletes the first, and checks that 
+       * listTodo returns only the second
+       * Write it Promise Style
+       * */
+    )
 
     it("can delete only the last todo", () => 
-      db.addTodo('aUser', 'hi', 2)
-      .then(() => db.addTodo('aUser', 'bye', 3))
-      .then(() => db.deleteTodo('aUser', 3))
-      .then(() => db.listTodos('aUser'))
-      .then((todos) => expect(todos).to.deep.equal([{text: 'hi', id: 2}])))
+      /** 
+       * This test creates two todos, deletes the last, and checks that 
+       * listTodo returns only the first
+       * Write it Promise Style
+       * */
+    )
 
     it("can delete only the middle todo", () => 
-      db.addTodo('aUser', 'hi', 2)
-      .then(() => db.addTodo('aUser', 'middle', 17))
-      .then(() => db.addTodo('aUser', 'bye', 3))
-      .then(() => db.deleteTodo('aUser', 17))
-      .then(() => db.listTodos('aUser'))
-      .then((todos) => expect(todos).to.deep.equal([{text: 'hi', id: 2}, {text: 'bye', id: 3}])))
+      /** 
+       * This test creates three todos, deletes the middle one, and checks that 
+       * listTodo returns the first and last
+       * Write it Promise Style
+       * */
+    )
   })
   
   describe("markTodo", function() {
@@ -78,21 +82,34 @@ describe("db", function() {
       db.addTodo('aUser', 'hi', 0)
     )
     it("should check an unchecked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', 0)
+      yield db.markTodo('aUser', true, 0)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: true, id: 0}])
     }))
-        
+    
+    it("should check a checked item", Promise.coroutine(function*() {
+      yield db.markTodo('aUser', true, 0)
+      yield db.markTodo('aUser', true, 0)
+      
+      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: true, id: 0}])
+    }))
+    
     it("should uncheck a checked item", Promise.coroutine(function*() {
-      yield db.markTodo('aUser', 0)
-      yield db.markTodo('aUser', 0)
+      yield db.markTodo('aUser', true, 0)
+      yield db.markTodo('aUser', false, 0)
+      
+      expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: false, id: 0}])
+    }))
+    
+    it("should uncheck an unchecked item", Promise.coroutine(function*() {
+      yield db.markTodo('aUser', false, 0)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', checked: false, id: 0}])
     }))
     
     it("shouldn't touch other items", Promise.coroutine(function*() {
       yield db.addTodo('aUser', 'bye', 1)
-      yield db.markTodo('aUser', 1)
+      yield db.markTodo('aUser', true, 1)
       
       expect(yield db.listTodos('aUser')).to.deep.equal([{text: 'hi', id: 0}, {text: 'bye', checked: true, id: 1}])
     }))
