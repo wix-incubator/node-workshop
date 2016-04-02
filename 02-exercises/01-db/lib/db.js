@@ -23,7 +23,7 @@ module.exports = (fileLocation) => {
   const findIndex = (todos, id) => todos.findIndex(element => element.id === id)
   
   return {
-    addTodo:
+    addTodo: undefined
       /**
        * `addTodo(userId, text, id)` should read the file, add the todo at the end of the list
        * of todos, then write the file.
@@ -32,7 +32,7 @@ module.exports = (fileLocation) => {
        */
     ,
     
-    deleteTodo: 
+    deleteTodo: undefined 
       /**
        * `deleteTodo(userId, id)` should read the file, remove the todo
        * with the id `id`, and write the file.
@@ -52,7 +52,7 @@ module.exports = (fileLocation) => {
       return readUserFile(userId)
     },
     
-    renameTodo
+    renameTodo: undefined
     /**
      * `renameTodo(userId, text, id)` should read the file, change the `text` flag
      * of the todo with the id `id, and write the file.

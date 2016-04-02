@@ -18,7 +18,7 @@
     "postclean": "npm run clean-01 && npm run clean-02 && npm run clean-03",
     "clean-01": "rm -rf 03-solved-exercises/01-db/node_modules",
     "clean-02": "rm -rf 03-solved-exercises/02-todomovc-client/node_modules && rm -rf 03-solved-exercises/02-todomovc-client/client/node_modules",
-    "clean-03": "rm -rf 03-solved-exercises/03-todomovc-server/node_modules"
+    "clean-03": "rm -rf 03-solved-exercises/03-todomovc-server/node_modules && rm -rf 03-solved-exercises/03-todomovc-server/client/node_modules"
   },
   "repository": {
     "type": "git",

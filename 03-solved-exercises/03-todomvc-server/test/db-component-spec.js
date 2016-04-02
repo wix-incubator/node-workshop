@@ -18,7 +18,8 @@ describe("db server", function() {
     server.close(done)
   })
   beforeEach((done) => 
-    fs.unlink(path.join(__dirname, '../data/user-todo.json'), done))
+    fs.unlink(path.join(__dirname, '../data/user-todo.json'), err => 
+      !err || err.code === 'ENOENT' ? done() : done(err)))
 
   const addTodo = (text, id) => 
     fetch(`http://localhost:${serverPort}/api/todos/${id}?text=${text}`, 

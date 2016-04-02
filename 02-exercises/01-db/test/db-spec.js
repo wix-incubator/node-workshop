@@ -33,6 +33,7 @@ describe("db", function() {
        * This test should add a todo to two different users and check that 
        * listTodo returns them for each user 
        */
+      expect(1).to.equal(2)      
     }))
     
     it("can add todos with the same text", Promise.coroutine(function*() {
@@ -40,6 +41,7 @@ describe("db", function() {
        * This test should adds two todos with the same text and check that 
        * listTodo returns them (unmerged, of course)
        */
+      expect(1).to.equal(2)
     }))
   })
   
@@ -50,6 +52,7 @@ describe("db", function() {
        * listTodo returns an empty list
        * Write it Promise Style
        * */
+      expect(1).to.equal(2)
     )
 
     it("can delete only the first todo", () => 
@@ -58,6 +61,7 @@ describe("db", function() {
        * listTodo returns only the second
        * Write it Promise Style
        * */
+      expect(1).to.equal(2)
     )
 
     it("can delete only the last todo", () => 
@@ -66,6 +70,7 @@ describe("db", function() {
        * listTodo returns only the first
        * Write it Promise Style
        * */
+      expect(1).to.equal(2)
     )
 
     it("can delete only the middle todo", () => 
@@ -74,6 +79,7 @@ describe("db", function() {
        * listTodo returns the first and last
        * Write it Promise Style
        * */
+      expect(1).to.equal(2)
     )
   })
   
