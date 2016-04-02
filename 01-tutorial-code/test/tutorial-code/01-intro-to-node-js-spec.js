@@ -2,7 +2,7 @@
 const testCommons = require('./test-commons')
 const os = require('os')
 
-const introFolder = '01-tutorial-code/01-intro-to-nodejs'
+const introFolder = '01-intro-to-nodejs'
 
 describe("intro-to-nodejs", function() {
   describe("cmd-programs", function() {

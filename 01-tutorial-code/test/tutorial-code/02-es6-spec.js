@@ -1,7 +1,7 @@
 'use strict'
 const testCommons = require('./test-commons')
 
-const es6Folder = '01-tutorial-code/02-es6'
+const es6Folder = '02-es6'
 
 describe("es6", function() {
   describe("cmd-programs", function() {

@@ -1,7 +1,7 @@
 'use strict'
 const testCommons = require('./test-commons')
 
-const testingFolder = '01-tutorial-code/03-testing'
+const testingFolder = '03-testing'
 
 describe("testing", function() {
   testCommons.testTests([

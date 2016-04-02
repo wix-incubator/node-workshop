@@ -4,18 +4,18 @@
   "description": "All code for the Wix NodeJS workshop",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run install-01 && npm run install-02",
+    "postinstall": "npm run install-00 && npm run install-01 && npm run install-02 && npm run install-03",
+    "install-00": "cd 01-tutorial-code && npm install",
     "install-01": "cd 03-solved-exercises/01-db && npm install",
     "install-02": "cd 03-solved-exercises/02-todomvc-client && npm install",
     "install-03": "cd 03-solved-exercises/03-todomvc-server && npm install",
-    "testing": "mocha --require",
-    "test": "mocha test/**/*-spec.js",
-    "posttest": "npm run test-01 && npm run test-02 && npm run test-03",
+    "test": "npm run test-00 && npm run test-01 && npm run test-02 && npm run test-03",
+    "test-00": "cd 01-tutorial-code && npm test",
     "test-01": "cd 03-solved-exercises/01-db && npm test",
     "test-02": "cd 03-solved-exercises/02-todomvc-client && npm test",
     "test-03": "cd 03-solved-exercises/03-todomvc-server && npm test",
-    "clean": "rm -rf node_modules",
-    "postclean": "npm run clean-01 && npm run clean-02 && npm run clean-03 && npm run clean-01x && npm run clean-02x && npm run clean-03x",
+    "clean": "npm run clean-00 && npm run clean-01 && npm run clean-02 && npm run clean-03 && npm run clean-01x && npm run clean-02x && npm run clean-03x",
+    "clean-00": "cd 01-tutorial-code && npm run clean",
     "clean-01": "cd 03-solved-exercises/01-db && npm run clean",
     "clean-02": "cd 03-solved-exercises/02-todomvc-client && npm run clean",
     "clean-03": "cd 03-solved-exercises/03-todomvc-server && npm run clean",
@@ -39,23 +39,5 @@
   "bugs": {
     "url": "https://github.com/wix/node-workshop/issues"
   },
-  "homepage": "https://github.com/wix/node-workshop#readme",
-  "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "babel-polyfill": "^6.7.2",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-register": "^6.7.2",
-    "bluebird": "^3.3.4",
-    "chai": "^3.5.0",
-    "lodash": "^4.6.1",
-    "mocha": "^2.4.5",
-    "node-fetch": "^1.4.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "form-data": "^1.0.0-rc4",
-    "left-pad": "^1.0.1"
-  }
+  "homepage": "https://github.com/wix/node-workshop#readme"
 }
