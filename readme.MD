@@ -4,9 +4,10 @@ first conducted on 6th March, 2016
 # Setup Instructions
 ## Using the Wix Node Workshop github repository
 1. Install Node v5 (currently v5.8.0)
+1. Install git.
 1. `$ git clone https://github.com/wix/node-workshop.git`
 1. `$ cd node-workshop`
-1. `$ npm install`
+1. `$ npm install` (this takes a while)
 1. To test your setup, run `$ npm test`. This will test all the code
    that is used in the workshop, including the solved exercises
 
