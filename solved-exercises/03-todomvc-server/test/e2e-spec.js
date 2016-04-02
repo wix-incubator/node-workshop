@@ -22,7 +22,8 @@ describe.only("e2e", function() {
   const browser = new Browser()
   const PORT_NUMBER = 5364
   let subProcess
-  before(Promise.coroutine(function*() {
+  
+  const runTodoServer = Promise.coroutine(function*(){
     subProcess = childProcess.fork(path.join(__dirname, '../server'), [], {
       env: Object.assign({}, process.env, {
         PORT: PORT_NUMBER
@@ -30,11 +31,16 @@ describe.only("e2e", function() {
       silent: true
     })
     yield waitUntilListening(subProcess)
+  })
+  const killTodoServer = () => subProcess.kill() 
+  
+  before(Promise.coroutine(function*() {
+    yield runTodoServer()
   }))
   beforeEach((done) => 
     fs.unlink(path.join(__dirname, '../data/user-todo.json'), done))
   
-  after(() => subProcess.kill())
+  after(() => killTodoServer())
 
   it("adds a todo correctly", Promise.coroutine(function*() {
     yield browser.visit(`http://localhost:${PORT_NUMBER}/`)
