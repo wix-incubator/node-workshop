@@ -18,7 +18,7 @@ const waitUntilListening = (subProcess) =>
       code === 0 ? fulfill() : reject(new Error(`Process returned ${code}`)))
   })
 
-describe.only("e2e", function() {
+describe("e2e", function() {
   const browser = new Browser()
   const PORT_NUMBER = 5364
   let subProcess
