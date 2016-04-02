@@ -7,9 +7,14 @@ const fs = require('fs')
 
 describe("rendering", function() {
   const serverPort = 3001
+  let server
   
   before(done => {
-    app.listen(serverPort, done)
+    server = app.listen(serverPort, done)
+  })
+  
+  after(done => {
+    server.close(done)
   })
   
   it("renders bundle.js correctly", Promise.coroutine(function*() {

@@ -29,7 +29,6 @@ App.propTypes = {
 }
 
 function mapStateToProps(state) {
-  console.log('@@@GIL state=', state)
   return {
     todos: state.todos
   }
