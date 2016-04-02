@@ -1,3 +1,4 @@
+"use strict"
 const expect = require('chai').expect
 const childProcess = require('child_process')
 const Promise = require('bluebird')

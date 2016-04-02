@@ -1,3 +1,4 @@
+"use strict"
 const child_process = require('child_process')
 const path = require('path')
 const expect = require('chai').expect
@@ -76,8 +77,6 @@ exports.testTests = (tests, folderForTests, it) => {
     it(test.file, (done) => {
       const testProcess = child_process.fork('node_modules/.bin/mocha',
         [path.join(folderForTests, test.file + '.js'), 
-        '--require', 'babel-register', 
-        '--require', 'babel-polyfill', 
         '--reporter', 'json'], {silent: true})
       testProcess.on('err', done)
       let stdout = ''
