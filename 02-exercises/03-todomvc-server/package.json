@@ -5,10 +5,11 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "cd client && npm install",
-    "build": "npm run client-build",
     "test": "mocha test/*-spec.js",
+    "build": "npm run client-build",
     "client-build": "cd client && npm run build",
-    "start:watch": "nodemon --ignore client"
+    "start:watch": "nodemon --ignore client",
+    "clean": "rm -rf node_modules && rm -rf client/node_modules"
   },
   "author": "Gil Tayar <gil@tayar.org>",
   "license": "MIT",

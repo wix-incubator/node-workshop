@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "cd client && npm install",
-    "test": "mocha test/*-spec.js"
+    "test": "mocha test/*-spec.js",
+    "clean": "rm -rf node_modules && rm -rf client/node_modules"
   },
   "author": "Gil Tayar <gil@tayar.org>",
   "license": "MIT",

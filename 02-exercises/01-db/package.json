@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*-spec.js"
+    "test": "mocha test/*-spec.js",
+    "clean": "rm -rf node_modules"    
   },
   "author": "Gil Tayar <gil@tayar.org>",
   "license": "MIT",

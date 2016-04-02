@@ -15,10 +15,13 @@
     "test-02": "cd 03-solved-exercises/02-todomvc-client && npm test",
     "test-03": "cd 03-solved-exercises/03-todomvc-server && npm test",
     "clean": "rm -rf node_modules",
-    "postclean": "npm run clean-01 && npm run clean-02 && npm run clean-03",
-    "clean-01": "rm -rf 03-solved-exercises/01-db/node_modules",
-    "clean-02": "rm -rf 03-solved-exercises/02-todomovc-client/node_modules && rm -rf 03-solved-exercises/02-todomovc-client/client/node_modules",
-    "clean-03": "rm -rf 03-solved-exercises/03-todomovc-server/node_modules && rm -rf 03-solved-exercises/03-todomovc-server/client/node_modules"
+    "postclean": "npm run clean-01 && npm run clean-02 && npm run clean-03 && npm run clean-01x && npm run clean-02x && npm run clean-03x",
+    "clean-01": "cd 03-solved-exercises/01-db && npm run clean",
+    "clean-02": "cd 03-solved-exercises/02-todomvc-client && npm run clean",
+    "clean-03": "cd 03-solved-exercises/03-todomvc-server && npm run clean",
+    "clean-01x": "cd 02-exercises/01-db && npm run clean",
+    "clean-02x": "cd 02-exercises/02-todomvc-client && npm run clean",
+    "clean-03x": "cd 02-exercises/03-todomvc-server && npm run clean"
   },
   "repository": {
     "type": "git",
