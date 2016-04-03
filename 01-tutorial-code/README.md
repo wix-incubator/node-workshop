@@ -1,5 +1,5 @@
 # Tutorial Code
-This is the code seen in the tutorial part of the workshop.
+This section contains the code seen in the tutorial part of the workshop.
 
 It is divided into three parts:
 
