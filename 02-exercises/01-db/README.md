@@ -39,5 +39,8 @@ file for each user, named by the `userId`.
    * I would suggest writing the code piecemeal-wise. Start by writing `addTodo`
      and writing the tests for `addTodo`, and editing this code till 
      the tests succeed. 
-     Once you have that, the rest of the code and tests will be easy peasy.   
+     Once you have that, the rest of the code and tests will be easy peasy.
+     
+## Done?
+Continue to [next exercise](../02-todomvc-client/README.md)   
 
