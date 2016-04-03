@@ -17,7 +17,8 @@ the code of the previous exercise already built in. So even if you did 50% of
 the exercise, you can continue in the next hour with the next exercise without
 any problem.
 
-The full "solutions" of the exercises are in `../03-solved-exercises`, but 
+The full "solutions" of the exercises are in 
+[03-solved-exercises(../03-solved-exercises/README.md), but 
 try not to look at them, OK? Yes, you can copy from them, but in that case,
 you're just cheating yourself, so what's the point? Peeking at them, on the 
 other hand, is all right, especially if the instructor is busy and can't
@@ -35,3 +36,6 @@ help you.
   In this exercise, you will write the Ajax
   handlers that will enable persistence of the todos, 
   thus completing the web app.
+
+## Done Reading This?
+So start with the [first exercise](../01-db/README.md)!   
