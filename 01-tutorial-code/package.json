@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "All code for the Wix NodeJS workshop",
   "scripts": {
-    "test": "mocha test/**/*-spec.js"
+    "test": "mocha test/**/*-spec.js",
+    "clean": "rm -rf node_modules"
   },
   "repository": {
     "type": "git",
