@@ -24,8 +24,8 @@ module.exports = (fileLocation) => {
       /**
        * `addTodo(userId, text, id)` should read the file, add the todo at the end of the list
        * of todos, then write the file.
-       * The todo should be in the structure {text, id}
-       * Write it coroutine style
+       * The todo should be in the structure {text, id}.
+       * Write it coroutine style.
        */
     ,
     
@@ -33,7 +33,7 @@ module.exports = (fileLocation) => {
       /**
        * `deleteTodo(userId, id)` should read the file, remove the todo
        * with the id `id`, and write the file.
-       * Write it coroutine style
+       * Write it coroutine style.
        */
     ,
     
@@ -51,9 +51,9 @@ module.exports = (fileLocation) => {
     
     renameTodo: undefined
     /**
-     * `renameTodo(userId, text, id)` should read the file, change the `text` flag
-     * of the todo with the id `id, and write the file.
-     * Write it in whatever style you want
+     * `renameTodo(userId, text, id)` should read the file, change the `text`
+     * field of the todo with the id `id`, and write the file.
+     * Write it in whatever style you want.
      */
   }
 }

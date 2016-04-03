@@ -17,8 +17,7 @@ In this pattern, what is exported by the module is just a function,
 that when called, creates an object with the functions needed.
 
 This factory function accepts one parameter - the folder for the "database
-files" and returns an object with the methods that will be needed 
-in the future.
+files" - and returns an object with the methods that comprise the module.
 
 All database functions receive a `userId` as the first parameter. This is 
 so that each user will get their own todos. This is implemented as a separate
