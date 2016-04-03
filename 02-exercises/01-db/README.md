@@ -11,7 +11,7 @@ and then write it.
 workshop. Also, error handling is completely ignored and errors will be passed
 on to the caller.)
 
-This module also uses the classic "factory" pattern of many JS modules,
+This module uses the classic "factory" pattern of many JS modules,
 in order to avoid any use of classes (e.g. avoid the use of `new` and `this`).
 In this pattern, what is exported by the module is just a function,
 that when called, creates an object with the functions needed.
@@ -33,10 +33,11 @@ file for each user, named by the `userId`.
    are written, and some you need to write yourself. 
 1. Implement the missing functions and tests. Each missing function has a comment
    describing exactly what to do. Once `npm test` succeeds, you're done.
-   The missign code and tests are in:
+   The missing code and tests are in:
    * `lib/db.js`
    * `test/db-spec.js`
    * I would suggest writing the code piecemeal-wise. Start by writing `addTodo`
-     and writing the tests for `addTodo`, and fixing them till they succeed. 
-     Once you have that, the rest of the code will be easy peasy.   
+     and writing the tests for `addTodo`, and editing this code till 
+     the tests succeed. 
+     Once you have that, the rest of the code and tests will be easy peasy.   
 
