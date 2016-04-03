@@ -42,5 +42,5 @@ file for each user, named by the `userId`.
      Once you have that, the rest of the code and tests will be easy peasy.
      
 ## Done?
-Continue to [next exercise](../02-todomvc-client/README.md)   
+Continue to [next exercise](../02-todomvc-client/README.md).   
 

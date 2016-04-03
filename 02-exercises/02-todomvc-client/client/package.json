@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "test": ":",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "build": "webpack"
   },
   "license": "MIT",
   "dependencies": {
