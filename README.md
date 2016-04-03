@@ -15,3 +15,7 @@ first conducted on 6th March, 2016
 1. Install Visual Studio Code
 1. Install "typings": `$ npm install -g typings`
 1. Install Intellisense for Node: `$ typings install node express --ambient`
+
+# Instructions for the Exercises
+* Can be found in [the exercises folder](02-exercises/README.md)
+* Should be read carefully
