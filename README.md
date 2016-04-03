@@ -16,6 +16,7 @@ If you prefer another IDE (IntelliJ/Eclipse/WebStore),
 or just want to use Notepad/Vim/Emacs, feel free to do so. But
 if you don't know which one you want, 
 then we would recommend Visual Studio Code.
+
 1. Install Visual Studio Code
 1. Install "typings": `$ npm install -g typings`
 1. Install Intellisense for Node: `$ typings install node express --ambient`
