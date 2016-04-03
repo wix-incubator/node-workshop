@@ -12,7 +12,7 @@ and client-side JavaScript for the TodoMVC app. This HTML and JavaScript
 were copied as-is from 
 [Dan Abramov's example code](https://github.com/reactjs/redux/tree/master/examples/todomvc) 
 in the redux repo, with minor modifications. (Why React/Redux? Because we love
-React and Redux and we think it's the future!)
+React and Redux!)
 
 ## What you need to do
 1. `$ cd 02-exercises/02-todomvc-client`
@@ -21,16 +21,15 @@ React and Redux and we think it's the future!)
    This `npm install` will also "npm install" the client code. 
    If you need to change the client code (and you don't), 
    just run `npm run client-build` again to rebuild the `bundle.js`. 
-1. `$ npm test`. You will see most tests fail. 
-   These are tests for the code you will write. Some of them
-   are written, and some you need to write yourself. There are three tests:
+1. `$ npm test`. You will see some tests fail. 
+   These are tests for the code you will write. There are three tests:
    * `render-component-spec.js`: the tests that raise the app and 
      check that it serves the HTML and JS correctly.
    * `db-spec.js`: you've already written that in the previous exercise, 
       so no need to do anything here. 
    * `e2e-spec.js`: the end to end tests that run the server as a command line
-     and tests is using a headless browser (ZombieJS), 
-     and so can also test the client-side cod. 
+     and tests it using a headless browser (ZombieJS), 
+     and so can also test the client-side code. 
      These tests are fully written for you,
      but feel free to read them to understand how to write E2E tests.
 1. Implement the missing functions and tests. 
@@ -43,7 +42,7 @@ React and Redux and we think it's the future!)
      needed to check the serving of the HTML and CSS.
 1. If you want to try the app, just do `npm start`, and navigate to 
    http://localhost:3000/. Instead of `npm start`, you can also
-   do `npm start:watch` to enable "hot reloading" of server code.     
+   do `npm run start:watch` to enable "hot reloading" of server code.     
 
 ## Done?
 Continue to [the last exercise](../03-todomvc-server/README.md).   

@@ -36,6 +36,14 @@ help you.
   In this exercise, you will write the Ajax
   handlers that will enable persistence of the todos, 
   thus completing the web app.
+  
+*Important*: If you have network problems during `npm install`, 
+you should run `$ npm config set cache-min 99999`.
+This will force npm to use the network as little as possible, and if you 
+already did the setup instructions, then you should have all the modules 
+you need in the cache.
+
+Don't forget at the end of the workshop to do `$ npm config delete cache-min`  
 
 ## Done Reading This?
 So start with the [first exercise](01-db/README.md)!   

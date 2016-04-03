@@ -4,6 +4,7 @@
   "description": "Redux TodoMVC example (modified for Wix Node Workshop)",
   "scripts": {
     "start": "node server.js",
+    "postinstall": "webpack",
     "build": "webpack",
     "test": ":"
   },

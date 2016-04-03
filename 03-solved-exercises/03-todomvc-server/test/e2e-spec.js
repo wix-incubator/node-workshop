@@ -105,6 +105,6 @@ describe("e2e", function() {
 function pressEnter(browser, selector) {
   const event = browser.document.createEvent('HTMLEvents');
   event.initEvent('keydown', true, true);
-  event.key = 13
+  event.keyCode = 13
   browser.dispatchEvent(selector, event)
 }
