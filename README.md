@@ -26,7 +26,7 @@ This repository has 3 parts:
   (and tested!) programs that demonstrate all the things we learn about. This is 
   _exactly_ the code that will be shown by the instructor in the first half
   of the workshop.
-* [Exercise](02-exercises/README.md): this is the part where you get to write
+* [Exercises](02-exercises/README.md): this is the part where you get to write
   code. See below for more information on the exercises.
 * [Solved Exercises](03-solved-exercises/README.md): this contains the same
   exercise as in the previous part, but "solved" and runnable. This is

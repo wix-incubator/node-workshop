@@ -38,4 +38,4 @@ help you.
   thus completing the web app.
 
 ## Done Reading This?
-So start with the [first exercise](../01-db/README.md)!   
+So start with the [first exercise](01-db/README.md)!   
