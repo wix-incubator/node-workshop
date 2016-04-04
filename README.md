@@ -10,7 +10,7 @@ first conducted on the 6th of March, 2016.
 1. To test your setup, run `$ npm test`. This will test all the code
    that is used in the workshop, including the solved exercises
 
-# Setup Visual Studio Code (optional, but recommended)
+## Setup Visual Studio Code (optional, but recommended)
 If you prefer another IDE (IntelliJ/Eclipse/WebStore), 
 or just want to use Notepad/Vim/Emacs, feel free to do so. But
 if you don't know which one you want, 
