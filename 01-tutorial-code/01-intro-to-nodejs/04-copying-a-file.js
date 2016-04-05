@@ -17,4 +17,5 @@ fs.readFile(sourceFile, function(err, contentBuffer) {
 * Pyramid of doom
 * fs.writeFile
 * Buffer vs. String
+* path.join
  */

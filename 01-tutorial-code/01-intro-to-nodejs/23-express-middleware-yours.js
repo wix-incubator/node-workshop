@@ -4,7 +4,7 @@ const os = require('os')
 
 const app = express()
 
-app.use('/', function(req, res, next) {
+app.use(function(req, res, next) {
   res.set('X-Wix-Server', os.hostname() + ' on ' + os.platform())
   next()
 })

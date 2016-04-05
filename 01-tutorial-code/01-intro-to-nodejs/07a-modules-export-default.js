@@ -14,5 +14,5 @@ module.exports = function copyFile(sourceFile, targetFile, cb) {
 }
 
 /*
-* Creating a module
+* Creating a module with a 'default' export
  */

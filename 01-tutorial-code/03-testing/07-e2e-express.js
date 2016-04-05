@@ -50,4 +50,5 @@ describe("mult", function() {
 * child_process.fork
 * silent: true
 * wait for listening
+* fetch
 */

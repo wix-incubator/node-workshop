@@ -26,4 +26,6 @@ copyFile(sourceFile, targetFile, function(err) {
 
 /*
 * How to write functions that are async
+* Handling results.
+* Handling errors.
  */

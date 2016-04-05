@@ -5,6 +5,7 @@ const asyncBadMult = require('./src/async-bad-mult')
 describe("mult", function() {
   it("01-should multiply stuff", (done) => {
     asyncMult(3, 4, (err, v) => {
+      expect(err).to.be.null
       expect(v).to.equal(12)
       done()    
     })
@@ -12,6 +13,7 @@ describe("mult", function() {
   
   it("02-should multiply negative and positive correctly", (done) => {
     asyncBadMult(3, -4, (err, v) => {
+      expect(err).to.be.null
       expect(v).to.equal(-12)
       done()    
     })
@@ -20,4 +22,5 @@ describe("mult", function() {
 
 /*
 * done
+* to.be.null
 */

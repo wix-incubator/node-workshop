@@ -10,11 +10,11 @@ describe("es6", function() {
       {file: '01-arrow-functions-simple', expectedOut: 'HELLO, WORLD'},
       {file: '02-arrow-functions-callbacks', expectedOut: 'Hello, world'},
       {file: '03-arrow-functions-coolness', expectedOut: 'Hello, world'},
-      {file: '04-simplified-object', expectedOut: 'Hello, world'},
-      {file: '05-arrow-functions-and-this', expectedOut: 'Hello, world!'},
-      {file: '05b-arrow-functions-and-this', expectedOut: 'Hello, world!'},
-      {file: '06-this-bites', expectedOut: 'Hello, world!'},
-      {file: '06b-this-bites', expectedOut: 'Hello, worldundefined'},
+      {file: '04-arrow-functions-and-this', expectedOut: 'Hello, world!'},
+      {file: '04b-arrow-functions-and-this', expectedOut: 'Hello, world!'},
+      {file: '05-this-bites', expectedOut: 'Hello, worldundefined'},
+      {file: '05b-this-bites', expectedOut: 'Hello, world!'},
+      {file: '06-simplified-object', expectedOut: 'Hello, world'},
       {file: '07-let.js', args: ['6'], expectedOut: '8'}, /// 08 -> 07
       {file: '08-const-references.js', args: ['7'], expectedOut: '13'}, /// 09 -> 08
       {file: '09-promises.js', expectedOut: 'Hello, world'}, /// 18 -> 9

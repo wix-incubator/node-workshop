@@ -13,7 +13,9 @@ fs.readFile(sourceFile, function(err, contentBuffer) {
         throw err
       next(contentBuffer)
     })
-  next(contentBuffer)
+  else
+    next(contentBuffer)
+  
   function next(contentBuffer) {    
     fs.writeFile(targetFile, contentBuffer, function(err) {
       fs.readFile(targetFile, {encoding: 'utf-8'}, function(err, content) {

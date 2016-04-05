@@ -5,6 +5,7 @@ const app = express()
 app.get('/div', function(req, res) {
   if (parseInt(req.query.b) === 0)
     return res.status(500).end()
+    
   res.type('application/json')
   res.send(
     JSON.stringify({value: parseInt(req.query.a) / parseInt(req.query.b)}))
@@ -15,7 +16,7 @@ const server = app.listen(process.env.PORT || 3000, function() {
 })
 
 /*
-* curl 'http://localhost:3000/add?a=4&b=5'
+* curl 'http://localhost:3000/div?a=4&b=5'
 * res.status
 * res.end
 * res.type

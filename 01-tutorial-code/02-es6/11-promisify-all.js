@@ -7,9 +7,8 @@ Promise.promisifyAll(fs)
 
 function copyFile(sourceFile, targetFile) {
   return fs.readFileAsync(sourceFile)
-    .then(contentBuffer => {
-      return fs.writeFileAsync(targetFile, contentBuffer)
-    })
+    .then(contentBuffer =>
+      fs.writeFileAsync(targetFile, contentBuffer))
 }
 
 const sourceFile = path.join(__dirname, 'data/hello-world.txt')
@@ -26,4 +25,5 @@ copyFile(sourceFile, targetFile)
 /*
 * Bluebird
 * Promise.promisifyAll
+* NODE_ENV=production
 */
