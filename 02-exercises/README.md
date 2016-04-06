@@ -18,7 +18,7 @@ the exercise, you can continue in the next hour with the next exercise without
 any problem.
 
 The full "solutions" of the exercises are in 
-[03-solved-exercises(../03-solved-exercises/README.md), but 
+[03-solved-exercises](../03-solved-exercises/README.md), but 
 try not to look at them, OK? Yes, you can copy from them, but in that case,
 you're just cheating yourself, so what's the point? Peeking at them, on the 
 other hand, is all right, especially if the instructor is busy and can't
