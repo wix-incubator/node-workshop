@@ -7,6 +7,8 @@ first conducted on the 6th of March, 2016.
 1. `$ git clone https://github.com/wix/node-workshop.git`
 1. `$ cd node-workshop`
 1. `$ npm install` (this takes a while)
+   * Note for Windows users: the `npm install` may show errors related to python or C++. 
+     Feel free to ignore them.
 1. To test your setup, run `$ npm test`. This will test all the code
    that is used in the workshop, including the solved exercises
 
