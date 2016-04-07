@@ -4,7 +4,7 @@ const path = require('path')
 
 const operations = {
   copyAdditions: '',
-  copyFile(sourceFile, targetFile, cb) {
+  copyFile: function(sourceFile, targetFile, cb) {
     fs.readFile(sourceFile, (err, contentBuffer) => {
       if (err)
         return cb(err)
