@@ -9,14 +9,9 @@ const _ = require('lodash')
 exports.testCommandLine = (tests, folderForTests, it) => {
   tests.forEach(test => 
     it(test.file, (done) => {
-      const subProcess = test.babel ? 
-        child_process[process.platform === 'win32' ? 'spawn' : 'fork'](
-            path.join('node_modules', '.bin', 'babel-node') + 
-                (process.platform === 'win32' ? '.cmd' : ''), 
-          [path.join(folderForTests, test.file)].concat(test.args || []), 
-            {silent: true, shell: true, stdio: 'pipe'}) :
-          child_process.fork(path.join(folderForTests, test.file), 
-            test.args || [], {silent: true})
+      const subProcess = 
+        child_process.fork(path.join(folderForTests, test.file), 
+          test.args || [], {silent: true})
       
       let stdout = ''
       subProcess.stdout.on('data', (data) =>
