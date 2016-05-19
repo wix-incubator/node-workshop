@@ -1,64 +1,68 @@
 "use strict"
-const Promise = require('bluebird')
 const fs = require('fs')
-Promise.promisifyAll(fs)
 const path = require('path')
-const _ = require('lodash')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)
-  const readUserFile = Promise.coroutine(function*(userId) {
-    try {
-      const content = yield fs.readFileAsync(
-        userFilePath(userId))
-        
-      return JSON.parse(content)
-    }
-    catch (e) {
-      if (e.code === 'ENOENT')
-        return [];
-      throw e;
-    }          
-  })
+  const readUserFile = (userId, cb) => { 
+    fs.readFile(userFilePath(userId), (err, content) => { 
+      if (err)
+        if (err.code === 'ENOENT')
+          return cb(null, [])
+        else
+          return cb(err)
+          
+      cb(null, JSON.parse(content))
+    })
+  }
   
-  const writeUserFile = Promise.coroutine(function*(userId, todos) {
-    yield fs.writeFileAsync(userFilePath(userId), JSON.stringify(todos))
-  })
+  const writeUserFile = (userId, todos, cb) =>
+    fs.writeFile(userFilePath(userId), JSON.stringify(todos), cb)
   
   const findIndex = (todos, id) => todos.findIndex(element => element.id === id)
   
   return {
-    addTodo: Promise.coroutine(function*(userId, text, id) {
-      const todos = yield readUserFile(userId)
-      
-      yield writeUserFile(userId, todos.concat({text, id})) 
-    }),
-    
-    deleteTodo: Promise.coroutine(function*(userId, id) {
-      const todos = yield readUserFile(userId)
-      todos.splice(findIndex(todos, id), 1)
-      yield writeUserFile(userId, todos) 
-    }),
-    
-    markTodo(userId, id) {
-      return readUserFile(userId)
-        .then(todos => {
-          const todo = todos[findIndex(todos, id)]
-          todo.checked = !todo.checked
-          return writeUserFile(userId, todos)
-        })
+    addTodo(userId, text, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+        writeUserFile(userId, todos.concat({text, id}), cb)
+      })
     },
     
-    listTodos(userId) {
-      return readUserFile(userId)
+    deleteTodo(userId, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+        todos.splice(findIndex(todos, id), 1)
+        writeUserFile(userId, todos, cb)
+      })
     },
     
-    renameTodo: Promise.coroutine(function*(userId, text, id) {
-      const todos = yield readUserFile(userId)
-      
-      todos[findIndex(todos, id)].text = text
-      
-      yield writeUserFile(userId, todos)       
-    })
+    markTodo(userId, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+          
+        const todo = todos[findIndex(todos, id)]
+        todo.checked = !todo.checked
+        writeUserFile(userId, todos, cb)
+      })
+    },
+    
+    listTodos(userId, cb) {
+      readUserFile(userId, cb)
+    },
+    
+    renameTodo(userId, text, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+          
+        todos[findIndex(todos, id)].text = text
+        
+        writeUserFile(userId, todos, cb)
+      })
+    }
   }
 }

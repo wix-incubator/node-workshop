@@ -10,8 +10,6 @@
   "author": "Gil Tayar <gil@tayar.org>",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.3.4",
-    "lodash": "^4.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

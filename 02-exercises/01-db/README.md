@@ -23,6 +23,8 @@ All database functions receive a `userId` as the first parameter. This is
 so that each user will get their own todos. This is implemented as a separate
 file for each user, named by the `userId`.
 
+The db module in this exercise will use callbacks for async calling.
+
 ## What you need to do
 1. `$ cd 02-exercises/01-db`
 1. `$ npm install`. The `package.json` probably has all the packages you need,
