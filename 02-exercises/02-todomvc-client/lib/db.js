@@ -7,38 +7,38 @@ const _ = require('lodash')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)
-  const readUserFile = Promise.coroutine(function*(userId) {
-    try {
-      const content = yield fs.readFileAsync(
-        userFilePath(userId))
-        
-      return JSON.parse(content)
-    }
-    catch (e) {
-      if (e.code === 'ENOENT')
-        return [];
-      throw e;
-    }          
-  })
+  const readUserFile = (userId, cb) => {
+    /*
+    ** `readUserFile` should read the user file (in userFilePath(userId)),
+    ** and return the json inside it (already parsed, of course) using 
+    ** Promises. Don't forget that the file may not exist, and if it does
+    ** not, you should still call the callback with an empty list of todos
+    */
+  }
   
-  const writeUserFile = Promise.coroutine(function*(userId, todos) {
-    yield fs.writeFileAsync(userFilePath(userId), JSON.stringify(todos))
-  })
+  const writeUserFile = (userId, todos) => 
+    fs.writeFileAsync(userFilePath(userId), JSON.stringify(todos))
   
   const findIndex = (todos, id) => todos.findIndex(element => element.id === id)
   
   return {
-    addTodo: Promise.coroutine(function*(userId, text, id) {
-      const todos = yield readUserFile(userId)
-      
-      yield writeUserFile(userId, todos.concat({text, id})) 
-    }),
+    addTodo(userId, text, id) {
+      /**
+       * `addTodo(userId, text, id, cb)` should read the file, 
+       * add the todo at the end of the list
+       * of todos, then write the file.
+       * The todo should be in the structure {text, id}.
+       * Write it using Promises.
+       */
+    },
     
-    deleteTodo: Promise.coroutine(function*(userId, id) {
-      const todos = yield readUserFile(userId)
-      todos.splice(findIndex(todos, id), 1)
-      yield writeUserFile(userId, todos) 
-    }),
+    deleteTodo(userId, id) {
+      return readUserFile(userId)
+        .then((todos) => {
+          todos.splice(findIndex(todos, id), 1)
+          return writeUserFile(userId, todos)          
+        })
+    },
     
     markTodo(userId, id) {
       return readUserFile(userId)
@@ -53,12 +53,12 @@ module.exports = (fileLocation) => {
       return readUserFile(userId)
     },
     
-    renameTodo: Promise.coroutine(function*(userId, text, id) {
-      const todos = yield readUserFile(userId)
-      
-      todos[findIndex(todos, id)].text = text
-      
-      yield writeUserFile(userId, todos)       
-    })
+    renameTodo(userId, text, id) {
+      return readUserFile(userId)
+        .then(todos => {
+          todos[findIndex(todos, id)].text = text
+          return writeUserFile(userId, todos)
+        })
+    }
   }
 }

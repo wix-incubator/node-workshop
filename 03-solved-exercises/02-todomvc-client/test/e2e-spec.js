@@ -23,61 +23,70 @@ describe("e2e", function() {
   const PORT_NUMBER = 5364
   let subProcess
   
-  const runTodoServer = Promise.coroutine(function*(){
+  const runTodoServer = () => {
     subProcess = childProcess.fork(path.join(__dirname, '../server'), [], {
       env: Object.assign({}, process.env, {
         PORT: PORT_NUMBER
       }),
       silent: true
     })
-    yield waitUntilListening(subProcess)
-  })
+    return waitUntilListening(subProcess)
+  }
   const killTodoServer = () => subProcess.kill() 
   
-  before(Promise.coroutine(function*() {
-    yield runTodoServer()
-  }))
-  
+  before(() => runTodoServer())
   after(() => killTodoServer())
 
-  it("adds a todo correctly", Promise.coroutine(function*() {
-    yield browser.visit(`http://localhost:${PORT_NUMBER}/`)
-    browser.assert.success()
-    browser.fill(".new-todo", "ggg")
-    pressEnter(browser, ".new-todo")
-    yield eventually(() => {
-      expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
-      expect(browser.text('.todo-list li:nth-child(2) label')).to.equal('')
-    })
-  }))
+  it("adds a todo correctly", () =>
+    browser.visit(`http://localhost:${PORT_NUMBER}/`)
+      .then(() => {
+        browser.assert.success()
+        browser.fill(".new-todo", "ggg")
+        pressEnter(browser, ".new-todo")
+        return eventually(() => {
+          expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
+          expect(browser.text('.todo-list li:nth-child(2) label')).to.equal('')
+        })        
+      })
+  )
   
-  it("deletes a todo correctly", Promise.coroutine(function*() {
-    yield browser.visit(`http://localhost:${PORT_NUMBER}/`)
-    browser.assert.success()
-    browser.fill(".new-todo", "ggg")
-    pressEnter(browser, ".new-todo")
-    yield eventually(() => {
-      expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
-    })
-    browser.pressButton(".todo-list li:nth-child(1) button.destroy")    
-    yield eventually(() => {
-      expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('')
-    })
-  }))
+  it("deletes a todo correctly", () =>
+    browser.visit(`http://localhost:${PORT_NUMBER}/`)
+      .then(() => {
+        browser.assert.success()
+        browser.fill(".new-todo", "ggg")
+        pressEnter(browser, ".new-todo")
+        return eventually(() => {
+          expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
+        })
+      })
+      .then(() => {
+        browser.pressButton(".todo-list li:nth-child(1) button.destroy")    
+        return eventually(() => {
+          expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('')
+        })
+      })
+  )
   
-  it("marks a todo correctly", Promise.coroutine(function*() {
-    yield browser.visit(`http://localhost:${PORT_NUMBER}/`)
-    browser.assert.success()
-    browser.fill(".new-todo", "ggg")
-    pressEnter(browser, ".new-todo")
-    yield eventually(() => {
-      expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
-    })
-    browser.check(".todo-list li:nth-child(1) input.toggle")    
-    yield eventually(() => {
-      expect(browser.field('.todo-list li:nth-child(1) input.toggle').checked).to.equal(true)
-    })
-  }))
+  it("marks a todo correctly", () =>
+    browser.visit(`http://localhost:${PORT_NUMBER}/`)
+      .then(() => {
+        browser.assert.success()
+        browser.fill(".new-todo", "ggg")
+        pressEnter(browser, ".new-todo")
+        return eventually(() => {
+          expect(browser.text('.todo-list li:nth-child(1) label')).to.equal('ggg')
+        })
+      })
+      .then(() => {
+        browser.check(".todo-list li:nth-child(1) input.toggle")    
+        return eventually(() => {
+          expect(
+            browser.field('.todo-list li:nth-child(1) input.toggle').checked).
+              to.equal(true)
+        })
+      })
+  )
 })
 
 function pressEnter(browser, selector) {

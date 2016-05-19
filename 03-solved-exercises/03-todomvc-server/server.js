@@ -17,25 +17,25 @@ app.get('/', (req, res) => {
 app.get('/api/todos', (req, res) => 
   db.listTodos(DEFAULT_USER).then(todos => res.json(todos)))
 
-app.post('/api/todos/:id', Promise.coroutine(function*(req, res) {
-  yield db.addTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
-  res.sendStatus(200)  
-}))
+app.post('/api/todos/:id', (req, res) =>
+  db.addTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
+    .then(() => res.sendStatus(200))  
+)
 
-app.delete('/api/todos/:id', Promise.coroutine(function*(req, res) {
-  yield db.deleteTodo(DEFAULT_USER, parseInt(req.params.id))
-  res.sendStatus(200)  
-}))
+app.delete('/api/todos/:id', (req, res) =>
+  db.deleteTodo(DEFAULT_USER, parseInt(req.params.id))
+    .then(() => res.sendStatus(200))  
+)
 
-app.put('/api/todos/:id/complete', Promise.coroutine(function*(req, res) {
-  yield db.markTodo(DEFAULT_USER, parseInt(req.params.id))
-  res.sendStatus(200)  
-}))
+app.put('/api/todos/:id/complete', (req, res) =>
+  db.markTodo(DEFAULT_USER, parseInt(req.params.id))
+    .then(() => res.sendStatus(200))  
+)
 
-app.put('/api/todos/:id', Promise.coroutine(function*(req, res) {
-  yield db.renameTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
-  res.sendStatus(200)  
-}))
+app.put('/api/todos/:id', (req, res) =>
+  db.renameTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
+    .then(() => res.sendStatus(200))  
+)
 
 module.exports = app
 

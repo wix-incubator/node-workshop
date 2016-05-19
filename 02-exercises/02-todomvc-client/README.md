@@ -3,9 +3,8 @@ In this exercise, you will write the Node server that serves the frontend code.
 The frontend code does not _yet_ persist the todos, 
 as the backend code for that is not fully written in this exercise.
 
-As discussed in the previous exercise, the db module here is fully written 
-and tested, so even if you didn't finish the previous exercise, we've taken
-care of you.
+You will also rewrite the `db` module to use promises (well, at least a small
+part of it).
 
 Now it's time to start writing the web app. This web app will serve the HTML
 and client-side JavaScript for the TodoMVC app. This HTML and JavaScript
@@ -25,8 +24,8 @@ React and Redux!)
    These are tests for the code you will write. There are three tests:
    * `render-component-spec.js`: the tests that raise the app and 
      check that it serves the HTML and JS correctly.
-   * `db-spec.js`: you've already written that in the previous exercise, 
-      so no need to do anything here. 
+   * `db-spec.js`: it's written, but it fails because the `db` module should
+     now be modified to use Promises. 
    * `e2e-spec.js`: the end to end tests that run the server as a command line
      and tests it using a headless browser (ZombieJS), 
      and so can also test the client-side code. 
@@ -36,6 +35,7 @@ React and Redux!)
    Each missing function has a comment describing exactly what to do. 
    Once `npm test` succeeds, you're done.
    The missing code and tests are in:
+   * `lib/db.js`: the db code, modified to use Promises.
    * `server.js`: implementation of an express server that serves the HTML
      and client-side JS.
    * `test/render-component-spec.js`: implement the two tests

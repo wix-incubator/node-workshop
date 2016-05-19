@@ -12,7 +12,7 @@ describe("rendering", function() {
     app.listen(serverPort, done)
   })
   
-  it("renders bundle.js correctly", Promise.coroutine(function*() {
+  it("renders bundle.js correctly", () => {
     /**
      * Fetch the bundle.js at `localhost:${serverPort}/static/bundle.js`
      * Check that it makes sense.
@@ -20,9 +20,9 @@ describe("rendering", function() {
      * and compare the first, say, 100 characters. 
      */
     expect(1).to.equal(2)
-  }))
+  })
   
-  it("renders index.html correctly", Promise.coroutine(function*() {
+  it("renders index.html correctly", () => {
     /**
      * Fetch the HTML at `localhost:${serverPort}/`.
      * Check that it makes sense.
@@ -30,5 +30,5 @@ describe("rendering", function() {
      * and compare the first, say, 100 characters. 
      */
     expect(1).to.equal(2)
-  }))
+  })
 })

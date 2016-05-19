@@ -53,30 +53,32 @@ describe("db server", function() {
       response.text() : 
       Promise.reject(new Error("cannot delete")))
   
-  it("adds todo correctly", Promise.coroutine(function*() {
-    yield addTodo('hi', 3)
-        
-    expect(yield listTodo()).to.deep.equal([{text: 'hi', id: 3}])
-  }))
+  it("adds todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => listTodo())
+      .then((todos) => expect(todos).to.deep.equal([{text: 'hi', id: 3}]))
+  )
   
-  it("deletes todo correctly", Promise.coroutine(function*() {
-    yield addTodo('hi', 3)
-    yield deleteTodo(3)
-        
-    expect(yield listTodo()).to.deep.equal([])
-  }))
+  it("deletes todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => deleteTodo(3))
+      .then(() => listTodo())
+      .then((todos) => expect(todos).to.deep.equal([]))
+  )
   
-  it("marks todo correctly", Promise.coroutine(function*() {
-    yield addTodo('hi', 3)
-    yield markTodo(3)
-        
-    expect(yield listTodo()).to.deep.equal([{text: 'hi', id: 3, checked: true}])
-  }))
+  it("marks todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => markTodo(3))
+      .then(() => listTodo())
+      .then((todos) => 
+        expect(todos).to.deep.equal([{text: 'hi', id: 3, checked: true}]))
+  )
   
-  it("rename todo correctly", Promise.coroutine(function*() {
-    yield addTodo('hi', 3)
-    yield renameTodo('bye', 3)
-        
-    expect(yield listTodo()).to.deep.equal([{text: 'bye', id: 3}])
-  }))
+  it("rename todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => renameTodo('bye', 3))
+      .then(() => listTodo())
+      .then((todos) => 
+        expect(todos).to.deep.equal([{text: 'bye', id: 3}]))
+  )
 })

@@ -13,10 +13,16 @@ app.get('/', (req, res) => {
   fs.createReadStream(path.join(__dirname, 'client/index.html')).pipe(res)
 })
 
+app.get('/api/todos', (req, res) => 
+  db.listTodos(DEFAULT_USER).then(todos => res.json(todos)))
+
+app.post('/api/todos/:id', (req, res) =>
+  db.addTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
+    .then(() => res.sendStatus(200))  
+)
+
 /**
- * Write the following controllers:
- * GET /api/todos: list the todos (as JSON)
- * POST /api/todos/{id}?text={text}: adds a todo
+ * Write the following additional controllers:
  * DELETE /api/todos/{id}: deletes a todo
  * PUT /api/todos/{id}/complete: toggles a todo
  * PUT /api/todos/{id}?text={text}: renames a todo
