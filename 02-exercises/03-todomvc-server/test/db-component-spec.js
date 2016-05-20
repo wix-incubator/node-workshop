@@ -44,14 +44,14 @@ describe("db server", function() {
     fetch(`http://localhost:${serverPort}/api/todos/${id}/complete`, {method: 'PUT'})
     .then((response) => response.ok ? 
       response.text() : 
-      Promise.reject(new Error("cannot delete")))
+      Promise.reject(new Error("cannot mark")))
       
   const renameTodo = (text, id) =>  
     fetch(`http://localhost:${serverPort}/api/todos/${id}?text=${text}`, 
         {method: 'PUT'})
     .then((response) => response.ok ? 
       response.text() : 
-      Promise.reject(new Error("cannot delete")))
+      Promise.reject(new Error("cannot rename")))
   
   it("adds todo correctly", () => {
     /**
