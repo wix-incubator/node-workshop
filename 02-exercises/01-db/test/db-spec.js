@@ -14,11 +14,14 @@ describe("db", function() {
   
   describe("addTodo", function() {
     it("adds first todo", (done) => {
-      /**
-       * This test should add a todo and check that listTodo returns it
-       */
-      expect(1).to.equal(2)
-      done()
+      db.addTodo('aUser', 'hi', 7, (err) => {
+        if (err) return done(err)
+        db.listTodos('aUser', (err, todos) => {
+          if (err) return done(err)
+          expect(todos).to.deep.equal([{text: 'hi', id: 7}])
+          done()      
+        })
+      })
     })
     
     it("adds second todo", (done) => {

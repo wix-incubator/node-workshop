@@ -5,12 +5,13 @@ const Promise = require('bluebird')
 const execAsync = Promise.promisify(childProcess.exec, {multiArgs: true})
 
 describe("mult", function() {
-  it("01-should multiply stuff", Promise.coroutine(function*() {
-    const [stdout, stderr] = yield execAsync(`node "${__dirname}/src/cmd-mult.js" 4 5`)
-    
-    expect(stdout.trim()).to.equal('20')
-    expect(stderr).to.equal('')
-  }))
+  it("01-should multiply stuff", () =>
+    execAsync(`node "${__dirname}/src/cmd-mult.js" 4 5`)
+      .then(([stdout, stderr]) => {
+        expect(stdout.trim()).to.equal('20')
+        expect(stderr).to.equal('')        
+      })
+  )
 })
 
 /*

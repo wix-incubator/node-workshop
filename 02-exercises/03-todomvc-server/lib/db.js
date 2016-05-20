@@ -3,7 +3,6 @@ const Promise = require('bluebird')
 const fs = require('fs')
 Promise.promisifyAll(fs)
 const path = require('path')
-const _ = require('lodash')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)

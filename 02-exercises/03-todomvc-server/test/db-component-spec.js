@@ -28,7 +28,7 @@ describe("db server", function() {
       response.text() : 
       Promise.reject(new Error("cannot add"))) 
 
-  const listTodo = (text, id) => 
+  const listTodo = () => 
     fetch(`http://localhost:${serverPort}/api/todos`)
     .then((response) => response.ok ? 
       response.json() : 

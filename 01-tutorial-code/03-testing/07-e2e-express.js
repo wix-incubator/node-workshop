@@ -15,35 +15,42 @@ const waitUntilListening = (subProcess) =>
 describe("mult", function() {
   const PORT_NUMBER = 5364
   let subProcess
-  before(Promise.coroutine(function*() {
+  before(() => {
      subProcess = childProcess.fork(`${__dirname}/src/express-mult.js`, [], {
       env: Object.assign({}, process.env, {
         PORT: PORT_NUMBER
       }),
       silent: true
     })
-    yield waitUntilListening(subProcess)    
-  }))
+    return waitUntilListening(subProcess)    
+  })
   
   after(() => subProcess.kill())
   
-  it("01-should multiply stuff", Promise.coroutine(function*() {
-    const response = yield fetch(`http://localhost:${PORT_NUMBER}/mult?a=5&b=6`)
-    expect(response.ok).to.be.true
-    
-    const body = yield response.text()
-    expect(body).to.equal('30')
-  }))
+  it("01-should multiply stuff", () => 
+    fetch(`http://localhost:${PORT_NUMBER}/mult?a=5&b=6`)
+      .then(response => {            
+        expect(response.ok).to.be.true
+        
+        return response.text()
+      })
+      .then(body => 
+        expect(body).to.equal('30')
+      )
+  )
   
-  it("02-should multiply negatives", Promise.coroutine(function*() {
-    const response = yield fetch(`http://localhost:${PORT_NUMBER}/mult?a=5&b=-6`)
-    expect(response.ok).to.be.true
-    
-    const body = yield response.text()
-    expect(body).to.equal('-30')
-  }))
+  it("02-should multiply negatives", () => 
+    fetch(`http://localhost:${PORT_NUMBER}/mult?a=5&b=-6`)
+      .then(response => {            
+        expect(response.ok).to.be.true
+        
+        return response.text()
+      })
+      .then(body => 
+        expect(body).to.equal('-30')
+      )
+  )
 })
-
 
 /*
 * before/after
