@@ -23,7 +23,7 @@ describe("db", function() {
     
     it("adds second todo", (done) => {
       /**
-       * This test should adds two todos and check that listTodo returns them
+       * This test should add two todos and check that listTodo returns them
        */
       expect(1).to.equal(2)
       done()
@@ -59,37 +59,61 @@ describe("db", function() {
       done()
     })
 
-    it("can delete only the first todo", () => { 
-      /** 
-       * This test creates two todos, deletes the first, and checks that 
-       * listTodo returns only the second.
-       * Write it Promise Style.
-       * */
-      expect(1).to.equal(2)
-      done()
+    it("can delete only the first todo", (done) => {
+      db.addTodo('aUser', 'hi', 3, (err) => {
+        if (err) return done(err)
+        db.addTodo('aUser', 'bye', 2, (err) => {
+          if (err) return done(err)
+          db.deleteTodo('aUser', 3, (err) => {
+            if (err) return done(err)
+            db.listTodos('aUser', (err, todos) => {
+              if (err) return done(err)
+              expect(todos).to.deep.equal([{text: 'bye', id: 2}])
+              done()
+            })
+          })
+        })
+      })
     })
 
-    it("can delete only the last todo", () => {
-      /** 
-       * This test creates two todos, deletes the last, and checks that 
-       * listTodo returns only the first.
-       * Write it Promise Style.
-       * */
-      expect(1).to.equal(2)
-      done()
+    it("can delete only the last todo", (done) => {
+      db.addTodo('aUser', 'hi', 3, (err) => {
+        if (err) return done(err)
+        db.addTodo('aUser', 'bye', 2, (err) => {
+          if (err) return done(err)
+          db.deleteTodo('aUser', 2, (err) => {
+            if (err) return done(err)
+            db.listTodos('aUser', (err, todos) => {
+              if (err) return done(err)
+              expect(todos).to.deep.equal([{text: 'hi', id: 3}])
+              done()
+            })
+          })
+        })
+      })
     })
 
-    it("can delete only the middle todo", () => { 
-      /** 
-       * This test creates three todos, deletes the middle one, and checks that 
-       * listTodo returns the first and last.
-       * Write it Promise Style.
-       * */
-      expect(1).to.equal(2)
-      done()
+    it("can delete only the middle todo", (done) => {
+      db.addTodo('aUser', 'hi', 3, (err) => {
+        if (err) return done(err)
+        db.addTodo('aUser', 'bye', 2, (err) => {
+          if (err) return done(err)
+          db.addTodo('aUser', 'middle', 17, (err) => {
+            if (err) return done(err)
+            db.deleteTodo('aUser', 17, (err) => {
+              if (err) return done(err)
+              db.listTodos('aUser', (err, todos) => {
+                if (err) return done(err)
+                expect(todos).to.deep.equal(
+                  [{text: 'hi', id: 3}, {text: 'bye', id: 2}])
+                done()
+              })
+            })
+          })
+        })
+      })
     })
   })
-  
   
   describe("markTodo", function() {
     beforeEach((done) => 

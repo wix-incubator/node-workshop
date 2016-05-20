@@ -48,11 +48,15 @@ module.exports = (fileLocation) => {
       return readUserFile(userId, cb)
     },
     
-    renameTodo: undefined
-    /**
-     * `renameTodo(userId, text, id, cb)` should read the file, change the `text`
-     * field of the todo with the id `id`, and write the file.
-       * Write it using callbacks.
-     */
+    renameTodo(userId, text, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+          
+        todos[findIndex(todos, id)].text = text
+        
+        writeUserFile(userId, todos, cb)
+      })
+    }
   }
 }
