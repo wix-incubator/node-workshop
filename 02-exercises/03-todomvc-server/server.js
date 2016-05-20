@@ -2,6 +2,7 @@ const Promise = require('bluebird')
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
+const db = require('./lib/db')(path.join(__dirname, 'data'))
 
 const app = express()
 
