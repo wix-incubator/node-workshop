@@ -20,6 +20,15 @@ React and Redux!)
    This `npm install` will also "npm install" the client code. 
    If you need to change the client code (and you don't), 
    just run `npm run client-build` again to rebuild the `bundle.js`. 
+1. Implement the missing functions and tests. 
+   Each missing function has a comment describing exactly what to do. 
+   Once `npm test` succeeds, you're done.
+   The missing code and tests are in:
+   * `lib/db.js`: the db code, modified to use Promises.
+   * `server.js`: implementation of an express server that serves the HTML
+     and client-side JS.
+   * `test/render-component-spec.js`: implement the two tests
+     needed to check the serving of the HTML and CSS.
 1. `$ npm test`. You will see some tests fail. 
    These are tests for the code you will write. There are three tests:
    * `render-component-spec.js`: the tests that raise the app and 
@@ -31,15 +40,6 @@ React and Redux!)
      and so can also test the client-side code. 
      These tests are fully written for you,
      but feel free to read them to understand how to write E2E tests.
-1. Implement the missing functions and tests. 
-   Each missing function has a comment describing exactly what to do. 
-   Once `npm test` succeeds, you're done.
-   The missing code and tests are in:
-   * `lib/db.js`: the db code, modified to use Promises.
-   * `server.js`: implementation of an express server that serves the HTML
-     and client-side JS.
-   * `test/render-component-spec.js`: implement the two tests
-     needed to check the serving of the HTML and CSS.
 1. If you want to try the app, just do `npm start`, and navigate to 
    http://localhost:3000/. Instead of `npm start`, you can also
    do `npm run start:watch` to enable "hot reloading" of server code.     
