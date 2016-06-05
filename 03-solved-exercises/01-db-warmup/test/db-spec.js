@@ -26,6 +26,7 @@ describe("db", function() {
     
     it("adds second todo", (done) => {
       /**
+       * Don't write this.
        * This test will be written in the next exercise
        */
       expect(1).to.equal(2)
@@ -34,6 +35,7 @@ describe("db", function() {
     
     it("adds different todos to different users", (done) => {
       /**
+       * Don't write this.
        * This test will be written in the next exercise
        */
       expect(1).to.equal(2)      
@@ -42,6 +44,7 @@ describe("db", function() {
     
     it("can add todos with the same text", (done) => {
       /**
+       * Don't write this.
        * This test will be written in the next exercise
        */
       expect(1).to.equal(2)
@@ -52,6 +55,7 @@ describe("db", function() {
   describe("deleteTodo", function() {
     it("can delete the only existing todo", (done) => {
       /** 
+       * Don't write this.
        * This test will be written in the next exercise
        * */
       expect(1).to.equal(2)

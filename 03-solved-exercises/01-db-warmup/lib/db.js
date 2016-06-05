@@ -32,13 +32,13 @@ module.exports = (fileLocation) => {
     
     deleteTodo: undefined 
       /**
-       * Don't write this. We will write it at the next exercise.
+       * Don't write this. We will write it in the next exercise.
        */
     ,
     
     markTodo(userId, id, cb) {
     /**
-       * Don't write this. We will write it at the next exercise.
+       * Don't write this. We will write it in the next exercise.
      */
     },
     
