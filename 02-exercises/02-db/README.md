@@ -1,4 +1,4 @@
-# Exercise #1 - Write the db module
+# Exercise #2 - Write the db module
 In this exercise, you will be writing the rest of database module that will be used
 by the server to store and manipulate the todos.
 

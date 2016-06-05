@@ -1,4 +1,4 @@
-# Exercise #1 - Write the db module
+# Exercise #1 - Warming up by writing a small par of the db module
 In this exercise, you will be writing oen function (addTodo) in the database 
 module that will be used by the server to store and manipulate the todos.
 

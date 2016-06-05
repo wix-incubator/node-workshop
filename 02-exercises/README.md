@@ -49,4 +49,4 @@ you need in the cache.
 Don't forget at the end of the workshop to do `$ npm config delete cache-min`  
 
 ## Done Reading This?
-So start with the [first exercise](01-db/README.md)!   
+So start with the [first exercise](01-db-warmup/README.md)!   

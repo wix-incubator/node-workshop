@@ -1,4 +1,4 @@
-# Exercise #3 - Persistent TodoMVC is done 
+# Exercise #4 - Persistent TodoMVC is done 
 In this exercise, you will add to the server code by writing the Ajax handlers 
 that will enable persistence of the todos, thus completing the web app.
   

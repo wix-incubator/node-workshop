@@ -1,4 +1,4 @@
-# Exercise #2 - Write the Node server to render the frontend code
+# Exercise #3 - Write the Node server to render the frontend code
 In this exercise, you will finish writing the Node server that serves 
 the frontend code. The frontend code does not _yet_ persist the todos, 
 as the backend code for that is not fully written in this exercise.

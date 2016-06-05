@@ -18,10 +18,6 @@ or just want to use Notepad/Vim/Emacs, feel free to do so. But
 if you don't know which one you want, 
 then we would recommend Visual Studio Code.
 
-1. Install Visual Studio Code
-1. Install "typings": `$ npm install -g typings`
-1. Install Intellisense for Node: `$ typings install node express --ambient`
-
 # What's In This Repository?
 This repository has 3 parts:
 * [Tutorial](01-tutorial-code/README.md): this includes fully functioning
