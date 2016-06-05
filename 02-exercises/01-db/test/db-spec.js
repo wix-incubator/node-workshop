@@ -56,7 +56,6 @@ describe("db", function() {
       /** 
        * This test creates a todo, deletes it, and checks that 
        * listTodo returns an empty list.
-       * Write it Promise Style.
        * */
       expect(1).to.equal(2)
       done()
