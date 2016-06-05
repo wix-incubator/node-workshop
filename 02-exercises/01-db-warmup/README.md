@@ -1,5 +1,5 @@
-# Exercise #1 - Warming up by writing a small par of the db module
-In this exercise, you will be writing oen function (addTodo) in the database 
+# Exercise #1 - Warming up by writing a small part of the db module
+In this exercise, you will be writing oen function (`addTodo`) in the database 
 module that will be used by the server to store and manipulate the todos.
 
 Given the nature of the workshop, we will be using a simple file to store the
@@ -31,7 +31,8 @@ The db module in this exercise will use callbacks for async calling.
    but if you want more, feel free to add them using `npm install --save`.
 1. `$ npm test`. You will see only one test running, because
    it is defined as `it.only`. 
-1. You should write the code for `addTodo` in `lib/db.js` to make it pass. 
+1. You should write the code for `addTodo` in `lib/db.js` to make the single 
+   test pass. 
      
 ## Done?
 Continue to [next exercise](../02-db/README.md).   

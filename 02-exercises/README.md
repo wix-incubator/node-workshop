@@ -4,7 +4,7 @@ beginning? Bah, Humbug! These exercises are what will turn you into a
 real NodeJS programmer.
 
 There are three exercises, in which we will gradually build a TodoMVC app.
-Yes, I know, you're fed up with TodoMVC, but, hey, it's well known, and not
+Yes, we know - you're fed up with TodoMVC, but, hey, it's well known, and not
 by chance did it succeed as a "canonical app". Obviously, you don't need to 
 concern yourself with the client part (which we will give to you) - 
 you will write only the server code of this web app.
@@ -31,11 +31,11 @@ help you.
 * [*Write the db module*](02-db/README.md): In this exercise, 
   you will be writing the rest of database module that will be used
   by the server to store and manipulate the todos.
-* [*Serve the front-end code*](02-todomvc-client/README.md): 
+* [*Serve the front-end code*](03-todomvc-client/README.md): 
   In this exercise, you will write the Node server
   that serves the frontend code. The frontend code does not _yet_ persist the 
   todos, as the backend code for that is not fully written in this exercise.
-* [*Enable persistence of todos*](03-todomvc-server/README.md): 
+* [*Enable persistence of todos*](04-todomvc-server/README.md): 
   In this exercise, you will write the Ajax
   handlers that will enable persistence of the todos, 
   thus completing the web app.
