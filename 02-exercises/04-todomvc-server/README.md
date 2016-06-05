@@ -25,15 +25,9 @@ the page will not reset the todos - they will persist.
    Each missing function has a comment describing exactly what to do. 
    Once `npm test` succeeds, you're done.
    The missing code and tests are in:
-   * `server.js`: implementation of the ajax controllers needed by the client.
-   * `test/db-component-spec.js`: implement the tests that 
-      check the ajax controllers.
-1. `$ npm test`. You will see some tests fail. 
-   These are tests for the code you will write. Besides
-   the same tests that were in exercise #2 (modified for persistence), you will
-   also have to write the tests in 
-   * `db-component-spec.js`: the tests that raise the app and 
-     check that the ajax controllers function properly.
+   * `server.js`: implementation of the missing ajax controllers 
+     needed by the client.
+   * `test/db-component-spec.js`: implement the missing tests.
 1. If you want to try the app, just do `npm start`, and navigate to 
    http://localhost:3000/. Instead of `npm start`, you can also
    do `npm run start:watch` to enable "hot reloading" of server code.     

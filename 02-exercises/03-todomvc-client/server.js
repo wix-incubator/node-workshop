@@ -1,12 +1,25 @@
-/**
- * Write the server as a dual mode server (cli and module)
- * It should serve everything in dist from `/static` using express.static
- * And it should serve `client/index.html` from `/` by reading the 
- * file and writing it to the response stream
- */
+const express = require('express')
+const path = require('path')
+const fs = require('fs')
+
+const app = express()
 
 /**
- * The next line is a dummy server so that `before` of tests won't fail
- * You should delete this next line before starting
- */
-module.exports = require('express')()
+** Replace the stub function with middleware that 
+** will serve the files in 'client/dist'
+*/
+app.use('/static', function stub() {})
+app.get('/', (req, res) => {
+  res.type('text/html; charset=utf-8')
+  /**
+   * Serve the file client/index.html in this request 
+   */
+})
+
+module.exports = app
+
+if (require.main === module) {
+  const port = process.env.PORT || 3000 
+  
+  app.listen(port, () => console.log(`Listening on port ${port}`))
+}

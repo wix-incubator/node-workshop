@@ -70,21 +70,19 @@ describe("db server", function() {
     expect(1).to.equal(2)
   })
   
-  it("marks todo correctly", () => {
-    /**
-     * Add a todo using the add todo controller (see server.js).
-     * Then mark it as complete
-     * Then use the list todo controller to verify that it was marked
-     */
-    expect(1).to.equal(2)
-  })
+  it("marks todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => markTodo(3))
+      .then(() => listTodo())
+      .then((todos) => 
+        expect(todos).to.deep.equal([{text: 'hi', id: 3, checked: true}]))
+  )
   
-  it("rename todo correctly", () => {
-    /**
-     * Add a todo using the add todo controller (see server.js).
-     * Then rename it
-     * Then use the list todo controller to verify that it was renamed
-     */
-    expect(1).to.equal(2)
-  })
+  it("rename todo correctly", () =>
+    addTodo('hi', 3)
+      .then(() => renameTodo('bye', 3))
+      .then(() => listTodo())
+      .then((todos) => 
+        expect(todos).to.deep.equal([{text: 'bye', id: 3}]))
+  )
 })

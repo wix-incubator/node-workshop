@@ -19,16 +19,18 @@ app.get('/api/todos', (req, res) =>
 
 app.post('/api/todos/:id', (req, res) =>
   db.addTodo(DEFAULT_USER, req.query.text, parseInt(req.params.id))
+    .then(() => res.sendStatus(200)) 
+)
+
+app.delete('/api/todos/:id', (req, res) =>
+  db.deleteTodo(DEFAULT_USER, parseInt(req.params.id))
     .then(() => res.sendStatus(200))  
 )
 
 /**
  * Write the following additional controllers:
- * DELETE /api/todos/{id}: deletes a todo
  * PUT /api/todos/{id}/complete: toggles a todo
  * PUT /api/todos/{id}?text={text}: renames a todo
- * 
- * In all cases, use the db module you wrote in #01, with the DEFAULT_USER
  */
 
 module.exports = app

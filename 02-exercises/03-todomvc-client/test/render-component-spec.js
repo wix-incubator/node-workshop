@@ -12,15 +12,15 @@ describe("rendering", function() {
     app.listen(serverPort, done)
   })
   
-  it("renders bundle.js correctly", () => {
-    /**
-     * Fetch the bundle.js at `localhost:${serverPort}/static/bundle.js`
-     * Check that it makes sense.
-     * The best way to do it is to statically read dist/bundle.js 
-     * and compare the first, say, 100 characters. 
-     */
-    expect(1).to.equal(2)
-  })
+  it("renders bundle.js correctly", () =>
+    fetch(`http://localhost:${serverPort}/static/bundle.js`)
+      .then(res => res.text())
+      .then(body => fs.readFileAsync(`${__dirname}/../client/dist/bundle.js`, 
+                      {encoding: 'utf-8'})
+          .then(expectedBody => 
+            expect(body.substring(0, 50)).
+              to.equal(expectedBody.substring(0, 50))))
+  )
   
   it("renders index.html correctly", () => {
     /**
