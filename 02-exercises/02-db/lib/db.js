@@ -1,15 +1,19 @@
 "use strict"
 const path = require('path')
+const fs = require('fs')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)
-  const readUserFile = (userId, cb) => {
-    /*
-    ** `readUserFile` should read the user file (in userFilePath(userId)),
-    ** and return the json inside it (already parsed, of course) using 
-    ** a callback. Don't forget that the file may not exist, and if it does
-    ** not, you should still call the callback with an empty list of todos
-    */
+  const readUserFile = (userId, cb) => { 
+    fs.readFile(userFilePath(userId), (err, content) => { 
+      if (err)
+        if (err.code === 'ENOENT')
+          return cb(null, [])
+        else
+          return cb(err)
+          
+      cb(null, JSON.parse(content))
+    })
   }
   
   const writeUserFile = (userId, todos, cb) =>
@@ -18,15 +22,13 @@ module.exports = (fileLocation) => {
   const findIndex = (todos, id) => todos.findIndex(element => element.id === id)
   
   return {
-    addTodo: undefined
-      /**
-       * `addTodo(userId, text, id, cb)` should read the file, 
-       * add the todo at the end of the list
-       * of todos, then write the file.
-       * The todo should be in the structure {text, id}.
-       * Write it using callbacks.
-       */
-    ,
+    addTodo(userId, text, id, cb) {
+      readUserFile(userId, (err, todos) => {
+        if (err)
+          return cb(err)
+        writeUserFile(userId, todos.concat({text, id}), cb)
+      })
+    },
     
     deleteTodo: undefined 
       /**
