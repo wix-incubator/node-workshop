@@ -33,21 +33,38 @@ describe("db", function() {
     })
     
     it("adds different todos to different users", (done) => {
-      /**
-       * This test should add a todo to two different users and check that 
-       * listTodo returns them for each user 
-       */
-      expect(1).to.equal(2)      
-      done()
+      db.addTodo('aUser', 'hi', 3, (err) => {
+        if (err) return done(err)
+        db.addTodo('bUser', 'bye', 2, (err) => {
+          if (err) return done(err)
+          db.listTodos('aUser', (err, todos) => {
+            if (err) return done(err)
+            expect(todos).to.deep.equal(
+              [{text: 'hi', id: 3}])
+            db.listTodos('bUser', (err, todos) => {
+              if (err) return done(err)
+              expect(todos).to.deep.equal(
+                [{text: 'bye', id: 2}])
+              done()
+            })
+          })
+        })
+      })
     })
     
     it("can add todos with the same text", (done) => {
-      /**
-       * This test should add two todos with the same text and check that 
-       * listTodo returns them (unmerged, of course)
-       */
-      expect(1).to.equal(2)
-      done()
+      db.addTodo('aUser', 'hi', 3, (err) => {
+        if (err) return done(err)
+        db.addTodo('aUser', 'hi', 2, (err) => {
+          if (err) return done(err)
+          db.listTodos('aUser', (err, todos) => {
+            if (err) return done(err)
+            expect(todos).to.deep.equal(
+              [{text: 'hi', id: 3}, {text: 'hi', id: 2}])
+            done()
+          })
+        })
+      })
     })
   })
   

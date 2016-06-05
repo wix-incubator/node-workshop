@@ -25,8 +25,11 @@ other hand, is all right, especially if the instructor is busy and can't
 help you.
 
 ## The Exercises
-* [*Write the db module*](01-db/README.md): In this exercise, 
-  you will be writing the database module that will be used
+* [*Warmup exercise*](01-db-warmup/README.md): In this exercise, 
+  you will be writing one function in the database module (that will be used
+  by the server to store and manipulate the todos), and make one test succeed.
+* [*Write the db module*](02-db/README.md): In this exercise, 
+  you will be writing the rest of database module that will be used
   by the server to store and manipulate the todos.
 * [*Serve the front-end code*](02-todomvc-client/README.md): 
   In this exercise, you will write the Node server

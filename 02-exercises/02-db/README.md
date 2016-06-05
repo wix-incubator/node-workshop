@@ -1,5 +1,5 @@
 # Exercise #1 - Write the db module
-In this exercise, you will be writing the database module that will be used
+In this exercise, you will be writing the rest of database module that will be used
 by the server to store and manipulate the todos.
 
 Given the nature of the workshop, we will be using a simple file to store the
@@ -26,10 +26,11 @@ file for each user, named by the `userId`.
 The db module in this exercise will use callbacks for async calling.
 
 ## What you need to do
-1. `$ cd 02-exercises/01-db`
+1. `$ cd 02-exercises/02-db`
 1. `$ npm install`. The `package.json` probably has all the packages you need,
    but if you want more, feel free to add them using `npm install --save`.
-1. `$ npm test`. You will see most tests fail. 
+1. `$ npm test`. You will see most tests fail (except for the one you 
+   made pass in the previous exercise).
    These are tests for the code you will write. Some of them
    are written, and some you need to write yourself. 
 1. Implement the missing functions and tests. Each missing function has a comment
@@ -37,11 +38,7 @@ The db module in this exercise will use callbacks for async calling.
    The missing code and tests are in:
    * `lib/db.js`
    * `test/db-spec.js`
-   * I would suggest writing the code piecemeal-wise. Start by writing `addTodo`
-     and writing the tests for `addTodo`, and editing this code till 
-     the tests succeed. 
-     Once you have that, the rest of the code and tests will be easy peasy.
      
 ## Done?
-Continue to [next exercise](../02-todomvc-client/README.md).   
+Continue to [next exercise](../03-todomvc-client/README.md).   
 

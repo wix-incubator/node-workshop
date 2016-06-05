@@ -45,4 +45,4 @@ React and Redux!)
    do `npm run start:watch` to enable "hot reloading" of server code.     
 
 ## Done?
-Continue to [the last exercise](../03-todomvc-server/README.md).   
+Continue to [the last exercise](../04-todomvc-server/README.md).   
