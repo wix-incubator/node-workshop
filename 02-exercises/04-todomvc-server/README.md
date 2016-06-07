@@ -15,7 +15,7 @@ Once this is done, you will have a fully functional Todo app, and refreshing
 the page will not reset the todos - they will persist.
 
 ## What you need to do
-1. `$ cd 02-exercises/03-todomvc-server`
+1. `$ cd 02-exercises/04-todomvc-server`
 1. `$ npm install`. The `package.json` probably has all the packages you need,
    but if you want more, feel free to add them using `npm install --save`.
    This `npm install` will also "npm install" the client code. 
