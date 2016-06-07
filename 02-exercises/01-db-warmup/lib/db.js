@@ -24,9 +24,10 @@ module.exports = (fileLocation) => {
   return {
     addTodo: undefined
       /**
-       * `addTodo(userId, text, id, cb)` should read the file, 
+       * `addTodo(userId, text, id, cb)` should read the file
+       * (using the above `readUserFile` function), 
        * add the todo at the end of the list
-       * of todos, then write the file.
+       * of todos, then write the file (using the above `writeUserFile`).
        * The todo should be in the structure {text, id}.
        * Write it using callbacks.
        */
