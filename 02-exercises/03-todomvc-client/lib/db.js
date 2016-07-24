@@ -6,12 +6,12 @@ const path = require('path')
 
 module.exports = (fileLocation) => {
   const userFilePath = userId => path.join(fileLocation, `${userId}-todo.json`)
-  const readUserFile = (userId, cb) => {
+  const readUserFile = (userId) => {
     /*
     ** `readUserFile` should read the user file (in userFilePath(userId)),
     ** and return the json inside it (already parsed, of course) using 
     ** Promises. Don't forget that the file may not exist, and if it does
-    ** not, you should still call the callback with an empty list of todos
+    ** not, you should return an empty list (`[]`)
     */
   }
   
