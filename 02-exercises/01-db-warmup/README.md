@@ -1,5 +1,5 @@
 # Exercise #1 - Warming up by writing a small part of the db module
-In this exercise, you will be writing oen function (`addTodo`) in the database 
+In this exercise, you will be writing one function (`addTodo`) in the database 
 module that will be used by the server to store and manipulate the todos.
 
 Given the nature of the workshop, we will be using a simple file to store the
