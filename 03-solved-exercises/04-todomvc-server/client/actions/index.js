@@ -29,20 +29,20 @@ export function refreshList(todos) {
   return {type: types.REFRESH_LIST, todos }
 }
 
-export function deletePersistentTodo(id) {
-  return function (dispatch) {
-    return fetch(`/api/delete?id=${id}`)
-    .then(function(response) {
-      if (response.ok)
-        dispatch(addTodo(text))
-    })
-  }
-}
+// export function deletePersistentTodo(id) {
+//   return function (dispatch) {
+//     return fetch(`/api/delete?id=${id}`)
+//     .then(function(response) {
+//       if (response.ok)
+//         dispatch(addTodo(text))
+//     })
+//   }
+// }
 
 export function addPersistentTodo(text) {
   return function (dispatch, getState) {
     const todos = getState().todos;
-    const nextId = todos.length == 0 ? 
+    const nextId = todos.length == 0 ?
       0 : todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1;
     return fetch(`/api/todos/${nextId}?text=${encodeURIComponent(text)}`, {method: 'POST'})
     .then(function(response) {
@@ -76,7 +76,7 @@ export function deletePersistentTodo(id) {
       else
         dispatch(deleteTodo(id))
     })
-  }  
+  }
 }
 
 export function completePersistentTodo(id) {
@@ -88,7 +88,7 @@ export function completePersistentTodo(id) {
       else
         dispatch(completeTodo(id))
     })
-  }  
+  }
 }
 
 export function editPersistentTodo(id, text) {
@@ -100,5 +100,5 @@ export function editPersistentTodo(id, text) {
       else
         dispatch(editTodo(id, text))
     })
-  }  
+  }
 }
