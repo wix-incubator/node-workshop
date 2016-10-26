@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/add', function(req, res) {
   res.send((parseInt(req.body.a) + parseInt(req.body.b)).toString())
