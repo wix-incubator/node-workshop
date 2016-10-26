@@ -29,16 +29,6 @@ export function refreshList(todos) {
   return {type: types.REFRESH_LIST, todos }
 }
 
-export function deletePersistentTodo(id) {
-  return function (dispatch) {
-    return fetch(`/api/delete?id=${id}`)
-    .then(function(response) {
-      if (response.ok)
-        dispatch(addTodo(text))
-    })
-  }
-}
-
 export function addPersistentTodo(text) {
   return function (dispatch, getState) {
     const todos = getState().todos;
