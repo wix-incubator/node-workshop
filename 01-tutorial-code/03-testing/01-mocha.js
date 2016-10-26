@@ -13,6 +13,7 @@ describe("mult", function() {
 })
 
 /*
+* ../node_modules/mocha/bin/mocha 01-mocha.js
 * Mocha
 * describe
 * it

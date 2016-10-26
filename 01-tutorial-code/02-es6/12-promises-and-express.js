@@ -17,5 +17,6 @@ app.listen(process.env.PORT || 3000, () => {
 })
 
 /*
+* curl -i 'http://localhost:3000/hello'
 * Promises and express
 */
