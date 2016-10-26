@@ -17,6 +17,7 @@ const server = app.listen(process.env.PORT || 3000, function() {
 
 /*
 * curl 'http://localhost:3000/div?a=4&b=5'
+* curl -I 'http://localhost:3000/div?a=4&b=0'
 * res.status
 * res.end
 * res.type

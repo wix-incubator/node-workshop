@@ -14,7 +14,6 @@ const server = app.listen(process.env.PORT || 3000, function() {
 })
 
 /*
-* curl 'http://localhost:3000/add' -X POST -d '{"a":4,"b":5}' \
-*    -H "Content-Type=application/json"
+* curl 'http://localhost:3000/add' -X POST -d '{"a":4,"b":5}' -H "Content-Type:application/json"
 * bodyParser.json
 */

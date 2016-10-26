@@ -10,5 +10,6 @@ const server = app.listen(process.env.PORT || 3000, function() {
 })
 
 /*
+* curl -i 'http://localhost:3000/hello-world.txt'
 * express.static
 */
